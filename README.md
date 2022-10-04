@@ -83,7 +83,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 * [Project Requirements](docs/Project%20Requirements.docx)
 * [Presentation](docs/Presentation.pptx)
 
-## Meeting Artefacts
+## Meeting Artifacts
 
 ### Meeting on 4th.October
 
@@ -121,7 +121,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 #### Action for next meeting
 
-* 
+* Nothing for now
 
 
 
