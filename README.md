@@ -83,10 +83,45 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 * [Project Requirements](docs/Project%20Requirements.docx)
 * [Presentation](docs/Presentation.pptx)
 
-## Questions
+## Meeting Artefacts
 
-1. Check what tech stacks are expected: react, nodejs for now?
+### Meeting on 4th.October
+
+#### People
+
+* Siyang Zhang 
+* Jackie
+
+#### Discussed topic
+
+* Clarify questions, schedule meeting time, set up slack channel for further communicate
+
+#### Questions and anwsers
+
+1. Check what tech stacks are expected: react, nodejs?
+* no hard requirements, just focus on portability, a web application will be preferred 
+
 2. Any examples for NLP API, especially for input data format and expected output?
+* Only two input, one is the local tsv file to upload, the other is the number of sentences/the number of game rounds
+* Therefore one feature to support upload tsc file from local, the other to specify the number fo sentences
+
 3. For logging games, should we store the log locally or within some database?
+* Currently the log output format will also be tsv file stored.
+
 4. What's the scale of sentence tuples, size/number of tuples?
+* 1 tuple contains 5 sentences, thousands of sentences within one file, small enough to parse easily
+* Randomly draw specified number of sentences from the file provided 
+
 5. Is the admin going to open up a game for a player like at the game lounges?
+* doesn't need this feature, since only one player and no competitor
+
+#### Next meeting plan
+
+* bi-weekly on Monday 11:30am
+
+#### Action for next meeting
+
+* 
+
+
+
