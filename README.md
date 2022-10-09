@@ -48,7 +48,7 @@ When game ends, allow game admin to save the player log for further analysis.
 ## Future Work
 *Details to be added later*
 
-## Available Scripts to run the game
+## Available Scripts to run the game locally
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### `npm start`
@@ -73,6 +73,10 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Application Links
+* Production: https://turing-test-game.herokuapp.com/
+* Staging: https://turing-test-game-stg.herokuapp.com/
 
 ## Contributors
 * Siyang Zhang
@@ -122,6 +126,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 #### Action for next meeting
 
 * Nothing for now
-
-
-
