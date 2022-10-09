@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+.background {
+    pointer-events: none;
+    opacity: 0.3;
+    position: absolute;
+    align-content: center;
+    padding-top: 10%;
+    padding-left: 33%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.start-content {
+    position: absolute;
+    width: 80vw;
+    margin-top: 5vw;
+    margin-left: 10vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.start-content .start-buttonArea {
+    position: absolute;
+    margin-top: 6vw;
+    margin-bottom: 1vw;
+    margin-left: 38vw;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.start-fileArea {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.start-fileArea .start-reminder {
+    text-align: center;
+    margin-bottom: 1vw;
+    font-family: "Times New Roman";
+    font-size: 1.6em;
+    font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.start-intro {
+    font-family: Arial;
+    font-size: 1.2em;
+}
+
+.start-intro .start-introContent {
+    font-family: Arial;
+    font-size: 1rem;
+    margin-top: 1vw;
+}
+
+.start-intro .start-introHead {
+    font-family: "Times New Roman";
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.start-submit-button {
+    position: absolute;
+    margin-top: 7vw;
+    margin-bottom: 1vw;
+    margin-left: 38vw;
+}
+
+.start-game {
+    margin-bottom: 1vw;
+    margin-left: 31vw;
+    z-index: 1000;
 }
