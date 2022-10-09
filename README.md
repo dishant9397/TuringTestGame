@@ -34,6 +34,9 @@ A game admin panel is used by NRC staff to start the game by choosing the game p
 Log user decisions in the game play.(question)
 When game ends, allow game admin to save the player log for further analysis.
 
+## User Experience Flowchart   
+* [Lucid chart link](https://lucid.app/lucidchart/558ca1b9-91ad-4aba-b89b-14e96a641019/edit?viewport_loc=61%2C-156%2C1935%2C1555%2C0_0&invitationId=inv_673d2537-0e21-4ddd-bd03-db72b98c2599#).
+
 ## User Stories
 
 ### Game Admin
