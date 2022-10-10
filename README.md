@@ -6,7 +6,7 @@ The project is an interactive Turing test game for player and game admin. The ta
 
 ## Project Roadmap
 
-* Jira project to track and document user stories/features and sprints[link](https://siyangzhang.atlassian.net/jira/software/projects/TTG/boards/2).
+* Jira project to track and document user stories/features and sprints [link](https://siyangzhang.atlassian.net/jira/software/projects/TTG/boards/2).
 * Bi-weekly team meeting with Daniel on every Tuesday, 4pm
 * Bi-weekly team meeting with Jackie on every Monday, 11:30am, also keep updated with Slack.
 
