@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+.background {
+    pointer-events: none;
+    opacity: 0.3;
+    position: fixed;
+    align-content: center;
+    padding-top: 10%;
+    padding-left: 30%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.start-content {
+    position: absolute;
+    width: 80vw;
+    height: 45vw;
+    margin-top: 0.8vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.start-buttonArea {
+    margin-top: 85vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.start-fileArea {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20vw;
 }
 
-.App-link {
-  color: #61dafb;
+.start-fileArea .start-reminder {
+    text-align: center;
+    margin-bottom: 1vw;
+    font-family: "Times New Roman";
+    font-size: 1.6em;
+    font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.start-intro {
+    font-family: Arial;
+}
+
+.start-intro .start-introContent {
+    font-family: Arial;
+    font-size: 1rem;
+    margin-top: 1vw;
+}
+
+.start-intro .start-introContent .start-introContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 1vw;
+}
+
+.start-intro .start-introContent .start-introItem {
+    width: 30vw;
+}
+
+.start-submit-button {
+    position: absolute;
+    margin-left: 85vw;
+    margin-top: 33vh;
+}
+
+.start-game {
+    z-index: 1000;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-top: 5vw;
 }
