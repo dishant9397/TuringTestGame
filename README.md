@@ -4,6 +4,11 @@ This is the Turing Test Game Repository by the team **"The Brainiacs"** that wil
 ## Project Description
 The project is an interactive Turing test game for player and game admin. The target players of the game are visitors in outreach events. A set of sentences, including one in the original language and several translations of different quality, is shown to the player. The player is challenged to identify the human translation from the set. All the Machine Traslation is from the National Research Council of Canada’s (NRC) Multilingual Text Processing team.
 
+## Project Roadmap
+
+* Jira project to track and document user stories/features and sprints [link](https://siyangzhang.atlassian.net/jira/software/projects/TTG/boards/2).
+* Bi-weekly team meeting with Daniel on every Tuesday, 4pm
+* Bi-weekly team meeting with Jackie on every Monday, 11:30am, also keep updated with Slack.
 
 ## Milestones
 Here are the milestones that we would be reaching:
