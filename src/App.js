@@ -1,14 +1,12 @@
 import './App.css';
-import Logo from './logo.svg';
-import HorizontalLinearStepper from './components/Stepper'
+import HorizontalLinearStepper from './components/game-intro/Stepper'
 
 function App() {
-  return (
-    <div className="App">
-        <img src={Logo} alt="background" className="background"/>
-        <HorizontalLinearStepper></HorizontalLinearStepper>
-    </div>
-  );
+    return (
+        <div className="App">
+            <HorizontalLinearStepper></HorizontalLinearStepper>
+        </div>
+    );
 }
 
 export default App;

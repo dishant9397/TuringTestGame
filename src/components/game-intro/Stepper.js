@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { Box, Button, Step, StepLabel, Stepper, Typography} from "@material-ui/core";
+import {Box, Button, Step, StepLabel, Stepper, Typography} from "@material-ui/core";
 import GameIntro from "./GameIntro";
 import UploadFile from "./UploadFile";
 import Sentences from "./Sentences";
 import StartGame from "./StartGame";
+import Logo from "./resources/logo.svg";
 
 const steps = [
     'Game Intro',
-    'Upload file',
-    'Number of sentences',
+    'Upload File',
+    'Number of Sentences',
     'Start Game'
 ]
 
@@ -17,13 +18,16 @@ const UPLOAD_FILE = 1;
 const SENTENCES = 2;
 const START_GAME = 3;
 
-function HorizontalLinearStepper(){
+function HorizontalLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
 
+    const styleProps = activeStep === 0 && {
+        style: {visibility: 'hidden'}
+    }
+
     const handleNext = () => {
         let newSkipped = skipped;
-        console.log(activeStep);
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
         setSkipped(newSkipped);
     }
@@ -36,9 +40,11 @@ function HorizontalLinearStepper(){
         setActiveStep(0);
     }
 
+
     // TODO: click start button then jump to page 2
     return (
-        <Box sx={{ width: '100%' }} className="box">
+        <Box sx={{width: '100%'}} className="box">
+            {activeStep !== START_GAME && <img src={Logo} alt="background" className="background"/>}
             <Stepper activeStep={activeStep}>
                 {steps.map((label, index) => {
                     const stepProps = {};
@@ -53,11 +59,11 @@ function HorizontalLinearStepper(){
             </Stepper>
             {activeStep === steps.length ? (
                 <React.Fragment>
-                    <Typography sx={{ mt: 2, mb: 1 }}>
+                    <Typography sx={{mt: 2, mb: 1}}>
                         All steps completed - you&apos;re finished
                     </Typography>
-                    <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                        <Box sx={{ flex: '1 1 auto' }} />
+                    <Box sx={{display: 'flex', flexDirection: 'row', pt: 2}}>
+                        <Box sx={{flex: '1 1 auto'}}/>
                         <Button onClick={handleReset}>Reset</Button>
                     </Box>
                 </React.Fragment>
@@ -68,23 +74,20 @@ function HorizontalLinearStepper(){
                         {activeStep === UPLOAD_FILE && <UploadFile></UploadFile>}
                         {activeStep === SENTENCES && <Sentences handleNext={handleNext}></Sentences>}
                         {activeStep === START_GAME && <StartGame></StartGame>}
+                    </div>
+                    <div className="start-buttonArea">
+                        <Button
+                            color="inherit"
+                            onClick={handleBack}
+                            sx={{mr: 1}}
+                            {...styleProps}
+                        >
+                            Back
+                        </Button>
+                        {activeStep === GAME_INTRO && <Button onClick={handleNext}>Next</Button>}
+                        {activeStep === UPLOAD_FILE && <Button onClick={handleNext}>Next</Button>}
+                        {activeStep === START_GAME && <Button>Start Game</Button>}
 
-                        <div className="start-buttonArea">
-                                <Box sx={{ pt: 2, mr: 1 }}>
-                                    {activeStep === GAME_INTRO && <Button onClick={handleNext}>Next</Button>}
-                                    {activeStep === UPLOAD_FILE && <Button onClick={handleNext}>Next</Button>}
-                                    {activeStep === START_GAME && <Button>Start</Button> }
-                                <Box sx={{ flex: '1 1 auto' }} />
-                                <Button
-                                    color="inherit"
-                                    disabled={activeStep === 0}
-                                    onClick={handleBack}
-                                    sx={{ mr: 1 }}
-                                >
-                                    Back
-                                </Button>
-                            </Box>
-                        </div>
                     </div>
                 </React.Fragment>
             )}
