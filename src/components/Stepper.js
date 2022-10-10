@@ -1,23 +1,30 @@
 import * as React from 'react';
-import { Box, Button, Step, StepLabel, Stepper, Typography} from "@material-ui/core";
-import GameIntro from "./GameIntro";
-import UploadFile from "./UploadFile";
-import Sentences from "./Sentences";
-import StartGame from "./StartGame";
+import {
+    Box,
+    Button,
+    Step,
+    StepLabel,
+    Stepper,
+    Typography,
+} from '@material-ui/core';
+import GameIntro from './GameIntro';
+import UploadFile from './UploadFile';
+import Sentences from './Sentences';
+import StartGame from './StartGame';
 
 const steps = [
     'Game Intro',
     'Upload file',
     'Number of sentences',
-    'Start Game'
-]
+    'Start Game',
+];
 
 const GAME_INTRO = 0;
 const UPLOAD_FILE = 1;
 const SENTENCES = 2;
 const START_GAME = 3;
 
-function HorizontalLinearStepper(){
+function HorizontalLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
 
@@ -26,15 +33,15 @@ function HorizontalLinearStepper(){
         console.log(activeStep);
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
         setSkipped(newSkipped);
-    }
+    };
 
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    }
+    };
 
     const handleReset = () => {
         setActiveStep(0);
-    }
+    };
 
     // TODO: click start button then jump to page 2
     return (
@@ -66,14 +73,20 @@ function HorizontalLinearStepper(){
                     <div className="start-content">
                         {activeStep === GAME_INTRO && <GameIntro></GameIntro>}
                         {activeStep === UPLOAD_FILE && <UploadFile></UploadFile>}
-                        {activeStep === SENTENCES && <Sentences handleNext={handleNext}></Sentences>}
+                        {activeStep === SENTENCES && (
+                            <Sentences handleNext={handleNext}></Sentences>
+                        )}
                         {activeStep === START_GAME && <StartGame></StartGame>}
 
                         <div className="start-buttonArea">
-                                <Box sx={{ pt: 2, mr: 1 }}>
-                                    {activeStep === GAME_INTRO && <Button onClick={handleNext}>Next</Button>}
-                                    {activeStep === UPLOAD_FILE && <Button onClick={handleNext}>Next</Button>}
-                                    {activeStep === START_GAME && <Button>Start</Button> }
+                            <Box sx={{ pt: 2, mr: 1 }}>
+                                {activeStep === GAME_INTRO && (
+                                    <Button onClick={handleNext}>Next</Button>
+                                )}
+                                {activeStep === UPLOAD_FILE && (
+                                    <Button onClick={handleNext}>Next</Button>
+                                )}
+                                {activeStep === START_GAME && <Button>Start</Button>}
                                 <Box sx={{ flex: '1 1 auto' }} />
                                 <Button
                                     color="inherit"
@@ -89,7 +102,7 @@ function HorizontalLinearStepper(){
                 </React.Fragment>
             )}
         </Box>
-    )
+    );
 }
 
-export default HorizontalLinearStepper
+export default HorizontalLinearStepper;

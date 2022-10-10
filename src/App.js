@@ -5,8 +5,8 @@ import HorizontalLinearStepper from './components/Stepper'
 function App() {
   return (
     <div className="App">
-        <img src={Logo} alt="background" className="background"/>
-        <HorizontalLinearStepper></HorizontalLinearStepper>
+      <img src={Logo} alt="background" className="background" />
+      <HorizontalLinearStepper className="horizontalLinearStepper" ></HorizontalLinearStepper>
     </div>
   );
 }
