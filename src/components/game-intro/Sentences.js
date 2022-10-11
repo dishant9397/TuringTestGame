@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {TextField, Button, Typography} from "@material-ui/core";
 import {Controller, useForm} from 'react-hook-form';
-import {CardDTO} from '../../entity/card/CardDTO.ts';
+import {CardDTO} from '../../entity/card/CardDTO.js';
 
 function Sentences(props) {
     const {handleSubmit, control} = useForm();

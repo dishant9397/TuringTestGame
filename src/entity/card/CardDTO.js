@@ -1,4 +1,4 @@
-export default interface CardDTO {
+export default class CardDTO {
     original: string
     referenceTranslation: string
     humanTranslation: string
