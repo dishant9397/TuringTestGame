@@ -20,16 +20,17 @@ const START_GAME = 3;
 
 function HorizontalLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
-    const [skipped, setSkipped] = React.useState(new Set());
+    const [cards, setCards] = React.useState([])
 
     const styleProps = activeStep === 0 && {
         style: {visibility: 'hidden'}
     }
 
-    const handleNext = () => {
-        let newSkipped = skipped;
+    const handleNext = (props) => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setSkipped(newSkipped);
+        if (props.cards !== undefined) {
+            setCards(props.cards)
+        }
     }
 
     const handleBack = () => {
@@ -71,9 +72,9 @@ function HorizontalLinearStepper() {
                 <React.Fragment>
                     <div className="start-content">
                         {activeStep === GAME_INTRO && <GameIntro></GameIntro>}
-                        {activeStep === UPLOAD_FILE && <UploadFile></UploadFile>}
-                        {activeStep === SENTENCES && <Sentences handleNext={handleNext}></Sentences>}
-                        {activeStep === START_GAME && <StartGame></StartGame>}
+                        {activeStep === UPLOAD_FILE && <UploadFile handleNext={handleNext}></UploadFile>}
+                        {activeStep === SENTENCES && <Sentences handleNext={handleNext} cards={cards}></Sentences>}
+                        {activeStep === START_GAME && <StartGame cards={cards}></StartGame>}
                     </div>
                     <div className="start-buttonArea">
                         <Button
@@ -85,7 +86,6 @@ function HorizontalLinearStepper() {
                             Back
                         </Button>
                         {activeStep === GAME_INTRO && <Button onClick={handleNext}>Next</Button>}
-                        {activeStep === UPLOAD_FILE && <Button onClick={handleNext}>Next</Button>}
                         {activeStep === START_GAME && <Button>Start Game</Button>}
 
                     </div>
