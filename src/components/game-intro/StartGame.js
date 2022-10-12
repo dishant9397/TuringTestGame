@@ -2,7 +2,7 @@ import * as React from 'react';
 import Start from './resources/start.gif';
 
 function StartGame(props) {
-    const cards: CardDTO[] = props.cards
+    const cards = props.cards
 
     React.useEffect(() => {
         console.log(cards)
@@ -10,7 +10,7 @@ function StartGame(props) {
 
     return (
         <div className="start-game">
-            <img src={Start} alt="start" width='100%'/>
+            <img src={Start} alt="start" width='100%' />
         </div>
     )
 }
