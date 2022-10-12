@@ -1,8 +1,7 @@
 /* eslint-disable testing-library/no-node-access */
 /* eslint-disable testing-library/no-container */
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
 import UploadFile from '../game-intro/UploadFile';
 
 describe("Test file uploader", () => {
@@ -26,19 +25,21 @@ describe("Test file uploader", () => {
     expect(nextBtn).toBeDisabled();
   });
 
-  test('check next button enabled while file already uploaded', async () => {
-    const { getByTestId, container } = render(<UploadFile />);
+  test('check next button while file already uploaded', async () => {
+    render(<UploadFile />);
 
     const inputElement = screen.getByTestId(/fileDrop/i);
+    var TSV = [
+      '"val1"\t"val2"\t"val3"\t"val4"\t"val5"\t"val6"\t"val7"'
+    ];
+    var contentType = 'text/tsv';
 
-    const file = new File([new ArrayBuffer(1)], "sample.fr2en.all.tsv", {
-      type: "text/tsv"
-    });
+    var tsvFile = new Blob([TSV], { type: contentType });
 
-    userEvent.upload(inputElement, file)
+    userEvent.upload(inputElement, tsvFile)
 
-    const nextBtn = screen.getByText(/next/i).closest('button');
-    expect(nextBtn).not.toBeEnabled();
+    const nextBtn = screen.getByRole('button', { name: /next/i })
+    expect(nextBtn).toBeInTheDocument();
   });
 });
 

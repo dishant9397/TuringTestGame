@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { Typography, Button } from "@material-ui/core";
-// import { CardDTO } from '../../entity/card/CardDTO.js';
-import { useForm } from 'react-hook-form';
 
 function UploadFile(props) {
 
@@ -42,7 +40,7 @@ function UploadFile(props) {
             <Typography component={'div'} className="start-reminder">Please select the file to upload (.tsv only)</Typography>
             <input className="fileUpload" data-testid="fileDrop" type="file" accept=".tsv" onChange={(file) => readFile(file)} />
             <div className="start-submit-button">
-                <Button onClick={() => handleNext({ cards: cards })} disabled={isDisabled}>Next</Button>
+                <Button data-testid="nextButton" onClick={() => handleNext({ cards: cards })} disabled={isDisabled}>Next</Button>
             </div>
         </div>
     )

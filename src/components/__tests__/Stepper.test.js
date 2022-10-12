@@ -8,8 +8,6 @@ test('check app renders stepper box component', () => {
 
   const boxes = container.getElementsByClassName('box');
 
-  // console.log(boxes.length);
-
   expect(boxes).toBeTruthy();
 
   // check the length of the box
