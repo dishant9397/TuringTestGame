@@ -1,14 +1,13 @@
 import * as React from 'react';
-import {TextField, Button, Typography} from "@material-ui/core";
-import {Controller, useForm} from 'react-hook-form';
-import {CardDTO} from '../../entity/card/CardDTO.js';
+import { TextField, Button, Typography } from "@material-ui/core";
+import { Controller, useForm } from 'react-hook-form';
 
 function Sentences(props) {
-    const {handleSubmit, control} = useForm();
+    const { control } = useForm();
     const [sentences, setSentences] = React.useState(0);
-    const {handleNext} = props;
-    const cards: CardDTO[] = props.cards
-    const totalCards = cards.length
+    const { handleNext } = props;
+    const cards = props.cards;
+    const totalCards = cards?.length;
 
     React.useEffect(() => {
     }, [sentences])
@@ -22,21 +21,21 @@ function Sentences(props) {
                 <Controller
                     name="Number of Sentences"
                     control={control}
-                    render={({field: {onChange, value}}) => (
+                    render={({ field: { onChange, value } }) => (
                         <TextField onChange={(event) => {
                             setSentences(event.target.value);
                             return onChange(event);
-                        }} value={value} label={"Number of Sentences"} type="number"/>
+                        }} value={value} label={"Number of Sentences"} type="number" />
                     )}
                 />
-                <br/>
+                <br />
                 {sentences > totalCards &&
-                    <div style={{color: "red"}}>too large! please do not submit more than {totalCards} sentences</div>}
+                    <div style={{ color: "red" }}>too large! please do not submit more than {totalCards} sentences</div>}
                 {sentences <= 0 &&
-                    <div style={{color: "red"}}>too small! please submit at least 1 sentence</div>}
+                    <div style={{ color: "red" }}>too small! please submit at least 1 sentence</div>}
                 <div className="start-submit-button">
-                    <Button onClick={() => handleNext({cards: cards})}
-                            disabled={sentences <= 0 || sentences > totalCards}>Next</Button>
+                    <Button role={'nextButton'} onClick={() => handleNext({ cards: cards })}
+                        disabled={sentences <= 0 || sentences > totalCards}>Next</Button>
                 </div>
 
             </form>
