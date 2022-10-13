@@ -25,21 +25,20 @@ describe("Test file uploader", () => {
     expect(nextBtn).toBeDisabled();
   });
 
-  test('check next button while file already uploaded', async () => {
+  test('check next button while file already uploaded', () => {
     render(<UploadFile />);
 
+    const fs = require('fs');
+    const sampleBuffer = fs.readFileSync('./src/components/__tests__/sample.tsv');
+    const blob = new Blob([sampleBuffer]);
+    const file = new File([blob], 'sample.tsv')
+
     const inputElement = screen.getByTestId(/fileDrop/i);
-    var TSV = [
-      '"val1"\t"val2"\t"val3"\t"val4"\t"val5"\t"val6"\t"val7"'
-    ];
-    var contentType = 'text/tsv';
 
-    var tsvFile = new Blob([TSV], { type: contentType });
-
-    userEvent.upload(inputElement, tsvFile)
-
-    const nextBtn = screen.getByRole('button', { name: /next/i })
+    userEvent.upload(inputElement, file);
+    const nextBtn = screen.getByText(/next/i);
     expect(nextBtn).toBeInTheDocument();
+    expect(nextBtn).toBeEnabled();
   });
 });
 
