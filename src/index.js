@@ -3,12 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
       <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-    <App />
+      <style>
+          @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+      </style>
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
   </React.StrictMode>
 );
 

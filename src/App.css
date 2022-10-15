@@ -71,3 +71,61 @@
     margin-left: 10vw;
     margin-top: 5vw;
 }
+
+.display-captionZone {
+    width: 90%;
+    margin: 5vh 5vw;
+}
+
+.display-captionZone .display-caption {
+    font-size: 2.5rem;
+    font-family: 'Silkscreen', cursive;
+    font-weight: bold;
+    color: darkslateblue;
+}
+
+.display-questionZone {
+    width: 84%;
+    margin: 2vh 8vw;
+}
+
+.display-questionZone .MuiCard-root {
+    height: 100%;
+}
+
+.display-questionZone .MuiCardContent-root {
+    margin: 2vh 3vw;
+
+}
+
+.display-questionZone .MuiTypography-body2 {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: auto 2vw;
+    color: dimgrey;
+    text-align: justify;
+}
+
+.display-questionZone .MuiTypography-h5 {
+    font-size: 1.7rem;
+    font-family: 'Silkscreen', cursive;
+    font-weight: bold;
+    color: darkslategrey;
+}
+
+.display-questionZone .MuiCardActions-root {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+.display-questionZone .MuiButtonBase-root {
+    width: 65vw;
+    align-items: center;
+    text-align: justify;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: rgb(76,76,76);
+}
