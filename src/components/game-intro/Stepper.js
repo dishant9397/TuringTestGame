@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useNavigate} from "react-router-dom"
 import {Box, Button, Step, StepLabel, Stepper, Typography} from "@material-ui/core";
 import GameIntro from "./GameIntro";
 import UploadFile from "./UploadFile";
@@ -21,6 +22,7 @@ const START_GAME = 3;
 function HorizontalLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
     const [cards, setCards] = React.useState([])
+    const navigate = useNavigate();
 
     const styleProps = activeStep === 0 && {
         style: {visibility: 'hidden'}
@@ -40,7 +42,6 @@ function HorizontalLinearStepper() {
     const handleReset = () => {
         setActiveStep(0);
     }
-
 
     // TODO: click start button then jump to page 2
     return (
@@ -86,7 +87,7 @@ function HorizontalLinearStepper() {
                             Back
                         </Button>
                         {activeStep === GAME_INTRO && <Button onClick={handleNext}>Next</Button>}
-                        {activeStep === START_GAME && <Button>Start Game</Button>}
+                        {activeStep === START_GAME && <Button onClick={() => navigate('/game', { replace: true })}>Start Game</Button>}
 
                     </div>
                 </React.Fragment>

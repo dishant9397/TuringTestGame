@@ -1,11 +1,14 @@
 import './App.css';
 import HorizontalLinearStepper from './components/game-intro/Stepper'
+import DisplayCard from "./components/display-card/DisplayCard";
+import {Route, Routes} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <HorizontalLinearStepper className="horizontalLinearStepper" ></HorizontalLinearStepper>
-    </div>
+      <Routes>
+          <Route path="/" element={<HorizontalLinearStepper />} />
+          <Route path="/game" element={<DisplayCard />} />
+      </Routes>
   );
 }
 
