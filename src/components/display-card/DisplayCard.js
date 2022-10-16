@@ -12,7 +12,7 @@ const STATY_TRANSLATION = "If the specified flex-basis is auto, the used flex ba
 const NEURO_TRANSLATION = "If the specified flex-basis is auto, the used flex basis is the value of the flex item’s main size " +
     "property. (This can itself be the keyword auto, which sizes the flex item based on its contents.)";
 
-function CardDisplay() {
+function DisplayCard() {
     return (
         <Box sx={{width: '100%'}} className="box">
             {<img src={Logo} alt="background" className="background"/>}
@@ -50,4 +50,4 @@ function CardDisplay() {
     )
 }
 
-export default CardDisplay
+export default DisplayCard
