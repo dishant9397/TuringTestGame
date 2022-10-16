@@ -1,46 +1,47 @@
 /* eslint-disable testing-library/no-node-access */
 /* eslint-disable testing-library/no-container */
 import { render, screen, within } from '@testing-library/react';
-import App from '../../App';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import { LocationDisplay } from '../../App'
+describe("Test Stepper", () => {
+  test('check app renders stepper box component', () => {
+    const route = '/'
 
-test('check app renders stepper box component', () => {
-  const { container } = render(<App />);
+    render(
+      <MemoryRouter initialEntries={[route]}>
+        <LocationDisplay />
+      </MemoryRouter>,
+    );
 
-  const boxes = container.getElementsByClassName('box');
+    const boxes = document.getElementsByClassName('box');
+    expect(boxes).toBeTruthy();
+  });
 
-  expect(boxes).toBeTruthy();
+  test('check app renders stepper component start content', () => {
+    const route = '/'
 
-  // check the length of the box
-  expect(boxes.length).toBe(1);
-});
+    render(
+      <MemoryRouter initialEntries={[route]}>
+        <LocationDisplay />
+      </MemoryRouter>,
+    );
 
-test('check app renders stepper component start content', () => {
-  const { container } = render(<App />);
+    const startContentElement = document.getElementsByClassName('start-content');
 
-  const startContentElement = container.getElementsByClassName('start-content');
+    expect(startContentElement).toBeTruthy();
+  });
 
-  // console.log(startContentElement.length);
+  test('check app renders stepper component start buttonArea', () => {
+    const route = '/'
 
-  expect(startContentElement).toBeTruthy();
+    render(
+      <MemoryRouter initialEntries={[route]}>
+        <LocationDisplay />
+      </MemoryRouter>,
+    );
 
-  expect(startContentElement.length).toBe(1);
-});
+    const startButtonAreaElement = document.getElementsByClassName('start-buttonArea');
 
-test('check app renders stepper component start buttonArea', () => {
-  const { container } = render(<App />);
-
-  const startButtonAreaElement = container.getElementsByClassName('start-buttonArea');
-
-  // console.log(startContentElement.length);
-  expect(startButtonAreaElement).toBeTruthy();
-
-  expect(startButtonAreaElement.length).toBe(1);
-});
-
-test('check button to next page renders', () => {
-  render(<App />);
-
-  const nextBtn = screen.getByRole('button', { name: /next/i });
-  within(nextBtn).getByText(/next/i);
-  expect(nextBtn).toBeTruthy();
+    expect(startButtonAreaElement).toBeTruthy();
+  });
 });

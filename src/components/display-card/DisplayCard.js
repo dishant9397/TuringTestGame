@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Box, Button, Card, CardContent, Typography, CardActions} from "@material-ui/core";
+import { Box, Button, Card, CardContent, Typography, CardActions } from "@material-ui/core";
 import Logo from "../game-intro/resources/logo.svg";
 
 const ORIGINAL_SENTENCE =
@@ -14,8 +14,8 @@ const NEURO_TRANSLATION = "If the specified flex-basis is auto, the used flex ba
 
 function DisplayCard() {
     return (
-        <Box sx={{width: '100%'}} className="box">
-            {<img src={Logo} alt="background" className="background"/>}
+        <Box sx={{ width: '100%' }} className="box">
+            {<img src={Logo} alt="background" className="background" />}
             <div className="display-captionZone">
                 <Typography className="display-caption">
                     Guess which translation is from human?
@@ -23,7 +23,7 @@ function DisplayCard() {
             </div>
             <div className="display-questionZone">
                 <Card>
-                    <CardContent>
+                    <CardContent data-testid="questionZone">
                         <Typography gutterBottom variant="h5" component="div">
                             The original sentence:
                         </Typography>
@@ -34,15 +34,15 @@ function DisplayCard() {
                     </CardContent>
                     <CardActions>
                         {/*TODO: write the mobile view for portability*/}
-                            <Button style={{textTransform: 'none'}} className="display-cardButton">
-                                {HUMAN_TRANSLATION}
-                            </Button>
-                            <Button style={{textTransform: 'none'}} className="display-cardButton">
-                                {STATY_TRANSLATION}
-                            </Button>
-                            <Button style={{textTransform: 'none'}} className="display-cardButton">
-                                {NEURO_TRANSLATION}
-                            </Button>
+                        <Button style={{ textTransform: 'none' }} className="display-cardButton" data-testid="humanButton">
+                            {HUMAN_TRANSLATION}
+                        </Button>
+                        <Button style={{ textTransform: 'none' }} className="display-cardButton" data-testid="statyButton">
+                            {STATY_TRANSLATION}
+                        </Button>
+                        <Button style={{ textTransform: 'none' }} className="display-cardButton" data-testid="neuroButton">
+                            {NEURO_TRANSLATION}
+                        </Button>
                     </CardActions>
                 </Card>
             </div>
