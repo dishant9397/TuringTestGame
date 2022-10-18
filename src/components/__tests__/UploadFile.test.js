@@ -1,10 +1,17 @@
 /* eslint-disable testing-library/no-node-access */
 /* eslint-disable testing-library/no-container */
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import UploadFile from '../game-intro/UploadFile';
 
 describe("Test file uploader", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+  afterAll(() => {
+    jest.resetAllMocks();
+  });
+
   test('check upload button renders', () => {
     const { container } = render(<UploadFile />);
 
@@ -25,7 +32,7 @@ describe("Test file uploader", () => {
     expect(nextBtn).toBeDisabled();
   });
 
-  test('check next button while file already uploaded', () => {
+  test('check next button while file already uploaded', async () => {
     render(<UploadFile />);
 
     const fs = require('fs');
@@ -37,9 +44,14 @@ describe("Test file uploader", () => {
 
     userEvent.upload(inputElement, file);
     const nextBtn = screen.getByText(/next/i);
-    expect(nextBtn).toBeInTheDocument();
-    expect(nextBtn).toBeEnabled();
+
+    await waitFor(() =>
+      expect(nextBtn).toBeInTheDocument(),
+      expect(nextBtn).toBeEnabled()
+    );
+
   });
+
 });
 
 
