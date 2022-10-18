@@ -8,15 +8,15 @@ import StartGame from "./StartGame";
 import Logo from "./resources/logo.svg";
 
 const steps = [
-    'Game Intro',
     'Upload File',
     'Number of Sentences',
+    'Game Intro',
     'Start Game'
 ]
 
-const GAME_INTRO = 0;
-const UPLOAD_FILE = 1;
-const SENTENCES = 2;
+const UPLOAD_FILE = 0;
+const SENTENCES = 1;
+const GAME_INTRO = 2;
 const START_GAME = 3;
 
 function HorizontalLinearStepper() {
@@ -72,9 +72,9 @@ function HorizontalLinearStepper() {
             ) : (
                 <React.Fragment>
                     <div className="start-content">
-                        {activeStep === GAME_INTRO && <GameIntro></GameIntro>}
                         {activeStep === UPLOAD_FILE && <UploadFile handleNext={handleNext}></UploadFile>}
                         {activeStep === SENTENCES && <Sentences handleNext={handleNext} cards={cards}></Sentences>}
+                        {activeStep === GAME_INTRO && <GameIntro></GameIntro>}
                         {activeStep === START_GAME && <StartGame cards={cards}></StartGame>}
                     </div>
                     <div className="start-buttonArea">
