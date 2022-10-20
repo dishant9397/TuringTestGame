@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Typography, Button} from "@material-ui/core";
 import {CardDTO} from '../../entity/card/CardDTO.js';
-import { useForm } from 'react-hook-form';
 
 function UploadFile(props) {
 
