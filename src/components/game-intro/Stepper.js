@@ -22,6 +22,7 @@ const START_GAME = 3;
 function HorizontalLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
     const [cards, setCards] = React.useState([])
+    const [sentences, setSentences] = React.useState(0)
     const navigate = useNavigate();
 
     const styleProps = activeStep === 0 && {
@@ -32,6 +33,9 @@ function HorizontalLinearStepper() {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
         if (props.cards !== undefined) {
             setCards(props.cards)
+        }
+        if (props.sentences !== undefined) {
+            setSentences(props.sentences)
         }
     }
 
@@ -75,7 +79,7 @@ function HorizontalLinearStepper() {
                         {activeStep === GAME_INTRO && <GameIntro></GameIntro>}
                         {activeStep === UPLOAD_FILE && <UploadFile handleNext={handleNext}></UploadFile>}
                         {activeStep === SENTENCES && <Sentences handleNext={handleNext} cards={cards}></Sentences>}
-                        {activeStep === START_GAME && <StartGame cards={cards}></StartGame>}
+                        {activeStep === START_GAME && <StartGame cards={cards} sentences={sentences}></StartGame>}
                     </div>
                     <div className="start-buttonArea">
                         <Button data-testid="backBtn"
