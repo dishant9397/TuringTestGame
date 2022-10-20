@@ -14,8 +14,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm install --legacy-peer-deps",
-    "heroku-prebuild": "echo This runs before Heroku installs dependencies.",
+    "heroku-prebuild": "npm install --legacy-peer-deps",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
