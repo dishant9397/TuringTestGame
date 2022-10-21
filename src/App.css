@@ -98,8 +98,16 @@
 
 }
 
+.display-questionZone .MuiTypography-body1 {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: auto 2vw;
+    color: rgb(76,76,76);
+    text-align: justify;
+}
+
 .display-questionZone .MuiTypography-body2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-style: italic;
     margin: auto 2vw;
     color: dimgrey;
@@ -107,10 +115,18 @@
 }
 
 .display-questionZone .MuiTypography-h5 {
-    font-size: 1.7rem;
-    font-family: 'Silkscreen', cursive;
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+.display-questionZone .MuiTypography-h6 {
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: darkslategrey;
+    margin-top: 1vh;
 }
 
 .display-questionZone .MuiCardActions-root {
