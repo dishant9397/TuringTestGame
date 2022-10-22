@@ -45,13 +45,13 @@ function DisplayCard() {
                     </CardContent>
                     <CardActions>
                         {/*TODO: write the mobile view for portability*/}
-                        <Button style={{ textTransform: 'none' }} className="display-cardButton" data-testid="humanButton">
+                        <Button style={{ textTransform: 'none' }} className="display-cardButton1" data-testid="humanButton">
                             {HUMAN_TRANSLATION}
                         </Button>
-                        <Button style={{ textTransform: 'none' }} className="display-cardButton" data-testid="statyButton">
+                        <Button style={{ textTransform: 'none' }} className="display-cardButton2" data-testid="statyButton">
                             {STATY_TRANSLATION}
                         </Button>
-                        <Button style={{ textTransform: 'none' }} className="display-cardButton" data-testid="neuroButton">
+                        <Button style={{ textTransform: 'none' }} className="display-cardButton3" data-testid="neuroButton">
                             {NEURO_TRANSLATION}
                         </Button>
                     </CardActions>
