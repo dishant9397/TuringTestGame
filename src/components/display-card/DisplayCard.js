@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Box, Button, Card, CardContent, Typography, CardActions } from "@material-ui/core";
 import Logo from "../game-intro/resources/logo.svg";
+import { useLocation } from 'react-router-dom';
 
 const ORIGINAL_SENTENCE =
     "If the specified flex-basis is auto, the used flex basis is the value of the flex item’s main size " +
@@ -12,7 +13,15 @@ const STATY_TRANSLATION = "If the specified flex-basis is auto, the used flex ba
 const NEURO_TRANSLATION = "If the specified flex-basis is auto, the used flex basis is the value of the flex item’s main size " +
     "property. (This can itself be the keyword auto, which sizes the flex item based on its contents.)";
 
-function DisplayCard() {
+function DisplayCard(props) {
+
+    const location = useLocation()
+    const cards = location.state.cards
+    const sentences = location.state.sentences
+
+    React.useEffect(() => {
+    }, [])
+
     return (
         <Box sx={{ width: '100%' }} className="box">
             {<img src={Logo} alt="background" className="background" />}

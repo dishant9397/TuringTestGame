@@ -2,13 +2,14 @@ import * as React from 'react';
 import { TextField, Button, Typography } from "@material-ui/core";
 
 function Sentences(props) {
+
     const [sentences, setSentences] = React.useState(0);
     const { handleNext } = props;
     const cards = props.cards;
     const totalCards = cards.length;
 
     React.useEffect(() => {
-    }, [sentences])
+    }, [])
 
     return (
         <div className="start-fileArea">
