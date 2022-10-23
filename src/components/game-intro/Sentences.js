@@ -8,7 +8,7 @@ function Sentences(props) {
     const { handleNext } = props;
     const cards = props.cards;
     // TODO: write the correct API for card limit
-    const totalCards = 606;
+    const totalCards = cards?.length;
 
     React.useEffect(() => {
     }, [sentences])
