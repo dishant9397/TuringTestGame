@@ -35,7 +35,7 @@ function Sentences(props) {
                 {sentences < 0 &&
                     <div style={{ color: "red" }}>too small! please submit at least 1 sentence</div>}
                 <div className="start-submit-button">
-                    <Button role={'nextButton'} onClick={() => handleNext({ cards: cards })}
+                    <Button role={'nextButton'} onClick={() => handleNext({ cards: cards, sentences: sentences })}
                         disabled={sentences <= 0 || sentences > totalCards}>Next</Button>
                 </div>
 
