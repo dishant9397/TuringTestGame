@@ -98,8 +98,16 @@
 
 }
 
+.display-questionZone .MuiTypography-body1 {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: auto 2vw;
+    color: rgb(76,76,76);
+    text-align: justify;
+}
+
 .display-questionZone .MuiTypography-body2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-style: italic;
     margin: auto 2vw;
     color: dimgrey;
@@ -107,10 +115,18 @@
 }
 
 .display-questionZone .MuiTypography-h5 {
-    font-size: 1.7rem;
-    font-family: 'Silkscreen', cursive;
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+.display-questionZone .MuiTypography-h6 {
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: darkslategrey;
+    margin-top: 1vh;
 }
 
 .display-questionZone .MuiCardActions-root {
@@ -128,4 +144,21 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: rgb(76,76,76);
+    margin: 0vh 0vw 0.5vh;
+}
+
+.display-questionZone .MuiCardActions-spacing > :not(:first-child){
+    margin-left: 0px;
+}
+
+.display-questionZone .display-cardButton1 {
+    background: rgba(63, 127, 191, 0.2);
+}
+
+.display-questionZone .display-cardButton2 {
+    background: rgba(51, 51, 153, 0.1);
+}
+
+.display-questionZone .display-cardButton3 {
+    background: rgba(51, 153, 153, 0.2);
 }
