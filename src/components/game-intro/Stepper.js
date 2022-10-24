@@ -93,7 +93,7 @@ function HorizontalLinearStepper() {
                         </Button>
                         {activeStep === GAME_INTRO && <Button
                             data-testid="nextBtn" onClick={handleNext}>Next</Button>}
-                        {activeStep === START_GAME && <Button data-testid="startBtn" onClick={() => navigate('/game', { replace: true })}>Start Game</Button>}
+                        {activeStep === START_GAME && <Button data-testid="startBtn" onClick={() => navigate('/game', { state: {cards: cards, sentences: sentences} })}>Start Game</Button>}
 
                     </div>
                 </React.Fragment>

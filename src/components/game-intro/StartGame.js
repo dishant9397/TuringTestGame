@@ -1,14 +1,7 @@
 import * as React from 'react';
 import Start from './resources/start.gif';
 
-function StartGame(props) {
-    const cards = props.cards
-    const sentences = props.sentences
-
-    React.useEffect(() => {
-        console.log(cards)
-        console.log(sentences)
-    }, [])
+function StartGame() {
 
     return (
         <div className="start-game">
