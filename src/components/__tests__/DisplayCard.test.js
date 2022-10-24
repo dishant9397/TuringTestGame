@@ -1,13 +1,21 @@
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+/* eslint-disable no-restricted-globals */
+import { render, screen } from "@testing-library/react";
 import DisplayCard from "../display-card/DisplayCard";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import { LocationDisplay } from "../../App";
 import userEvent from "@testing-library/user-event";
+import { createBrowserHistory } from "history";
 
 describe("Test card display section", () => {
+  beforeAll(() => {
+    const history = createBrowserHistory();
+    const cards = { a: 123, b: 456 }
+    history.push("/game", cards);
+  });
+
   test("check caption renders", () => {
     render(
-      <BrowserRouter>
+      <BrowserRouter history={history}>
         <DisplayCard />
       </BrowserRouter>
     );
