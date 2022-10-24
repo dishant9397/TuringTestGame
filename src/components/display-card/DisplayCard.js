@@ -22,8 +22,8 @@ const NEURO_SCORE = 0.7
 function DisplayCard(props) {
 
     const location = useLocation()
-    const cards = location.state.cards
-    const sentences = location.state.sentences
+    // const cards = location.state.cards
+    // const sentences = location.state.sentences
 
     const [humanScore, setHumanScore] = React.useState(-1)
     const [statyScore, setStatyScore] = React.useState(-1)
@@ -71,19 +71,19 @@ function DisplayCard(props) {
                             <Button style={{ textTransform: 'none' }} className="display-cardButton1" data-testid="humanButton">
                                 {HUMAN_TRANSLATION}
                             </Button>
-                            {humanScore !== -1 && <Typography>{humanScore}</Typography>}
+                            {humanScore !== -1 && <Typography data-testid="humanScore">{humanScore}</Typography>}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none' }} className="display-cardButton2" data-testid="statyButton">
                                 {STATY_TRANSLATION}
                             </Button>
-                            {statyScore !== -1 && <Typography>{statyScore}</Typography>}
+                            {statyScore !== -1 && <Typography data-testid="statyScore">{statyScore}</Typography>}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none' }} className="display-cardButton3" data-testid="neuroButton">
                                 {NEURO_TRANSLATION}
                             </Button>
-                            {neuroScore !== -1 && <Typography>{neuroScore}</Typography>}
+                            {neuroScore !== -1 && <Typography data-testid="neuroScore">{neuroScore}</Typography>}
                         </div>
                         <Button onClick={onClick}>
                             Get Scores
