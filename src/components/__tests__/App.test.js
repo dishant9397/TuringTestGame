@@ -1,8 +1,8 @@
 /* eslint-disable testing-library/no-node-access */
 /* eslint-disable testing-library/no-container */
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
-import { App, LocationDisplay } from '../../App'
+import { MemoryRouter } from 'react-router-dom';
+import { LocationDisplay } from '../../App'
 
 describe("Test App page", () => {
 

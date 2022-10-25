@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { Box, Button, Card, CardContent, Typography, CardActions } from "@material-ui/core";
 import Logo from "../game-intro/resources/logo.svg";
@@ -22,8 +23,8 @@ const NEURO_SCORE = 0.7
 function DisplayCard(props) {
 
     const location = useLocation()
-    // const cards = location.state.cards
-    // const sentences = location.state.sentences
+    const cards = location.state.cards
+    const sentences = location.state.sentences
 
     const [humanScore, setHumanScore] = React.useState(-1)
     const [statyScore, setStatyScore] = React.useState(-1)
