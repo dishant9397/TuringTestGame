@@ -11,6 +11,7 @@ function CardDeck() {
     const cards = location.state.cards
     
     const [currentCard, setCurrentCard] = React.useState([])
+    const [cardLength, setCardLength] = React.useState(cards.length)
     const [sentences, setSentences] = React.useState(location.state.sentences)
 
     React.useEffect(() => {
@@ -19,12 +20,12 @@ function CardDeck() {
     }, [])
 
     const changeCard = () => {
-        const random = Math.floor(Math.random() * (cards.length));
+        const random = Math.floor(Math.random() * (cardLength));
         setCurrentCard(cards[random])
-        const temp = cards[sentences - 1]
-        cards[sentences - 1] = cards[random]
-        cards[random] = temp
+        cards[random] = cards[cardLength - 1]
+        cards[cardLength - 1] = currentCard
         setSentences(s => s = s - 1)
+        setCardLength(length => length = length - 1)
     }
 
     return (
