@@ -1,22 +1,34 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
 import { render, screen } from "@testing-library/react";
 import DisplayCard from "../display-card/DisplayCard";
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
-import { LocationDisplay } from "../../App";
+import { BrowserRouter} from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import { createBrowserHistory } from "history";
 
-describe("Test card display section", () => {
-  beforeAll(() => {
+describe("Test Display Card section", () => {
+  const card = {
+    original:
+      "La Maison Blanche fait pression pour que des inspecteurs nucléaires soient envoyés dès que possible pour surveiller la fermeture par la Corée du Nord de ses réacteurs nucléaires",
+    referenceTranslation:
+      "White House Pushes for Nuclear Inspectors to Be Sent as Soon as Possible to Monitor North Korea's Closure of Its Nuclear Reactors",
+    humanTranslation: "White House Urges Hastily Sending Nuclear Inspectors to Supervise North Korea's Nuclear Reactor Shutdown",
+    humanScore: 0.91271,
+    statisticalMachineTranslation: "White House is pushing for nuclear inspectors to be sent as soon as possible to monitor North Korea's closure of its nuclear reactors.",
+    statisticalMachineScore: 0.957052,
+    neuralMachineTranslation: "The White House pushed to nuclear inspectors be sent as soon as possible to oversee the closure of North Korea's nuclear reactors.",
+    neuralMachineScore: 0.935441,
+  };
+
+  beforeEach(async () => {
     const history = createBrowserHistory();
-    const cards = { a: 123, b: 456 }
-    history.push("/game", cards);
+    history.push("/game", card);
   });
 
   test("check caption renders", () => {
     render(
       <BrowserRouter history={history}>
-        <DisplayCard />
+        <DisplayCard card={card}/>
       </BrowserRouter>
     );
     const caption = screen.getByText(
@@ -27,8 +39,8 @@ describe("Test card display section", () => {
 
   test("check original and reference sentences renders", () => {
     render(
-      <BrowserRouter>
-        <DisplayCard />
+      <BrowserRouter history={history}>
+        <DisplayCard card={card}/>
       </BrowserRouter>
     );
     const question = screen.getByTestId(/questionZone/i);
@@ -37,8 +49,8 @@ describe("Test card display section", () => {
 
   test("check human translation Button renders", () => {
     render(
-      <BrowserRouter>
-        <DisplayCard />
+      <BrowserRouter history={history}>
+        <DisplayCard card={card}/>
       </BrowserRouter>
     );
     const question = screen.getByTestId(/humanButton/i);
@@ -47,8 +59,8 @@ describe("Test card display section", () => {
 
   test("check staty translation Button renders", () => {
     render(
-      <BrowserRouter>
-        <DisplayCard />
+      <BrowserRouter history={history}>
+        <DisplayCard card={card}/>
       </BrowserRouter>
     );
     const question = screen.getByTestId(/statyButton/i);
@@ -57,44 +69,35 @@ describe("Test card display section", () => {
 
   test("check neuro translation Button renders", () => {
     render(
-      <BrowserRouter>
-        <DisplayCard />
+      <BrowserRouter history={history}>
+        <DisplayCard card={card}/>
       </BrowserRouter>
     );
     const question = screen.getByTestId(/neuroButton/i);
     expect(question).toBeInTheDocument();
   });
 
-  test("routes to CardDisplay components", () => {
-    const route = "/game";
 
-    render(
-      <MemoryRouter initialEntries={[route]}>
-        <LocationDisplay />
-      </MemoryRouter>
-    );
 
-    expect(screen.getByTestId("location-display")).toHaveTextContent(route);
-  });
-
-  test("check get scores Button renders", () => {
+  test("check submit Button renders", () => {
     render(
       <BrowserRouter>
-        <DisplayCard />
+        <DisplayCard card={card}/>
       </BrowserRouter>
     );
-    const getScoreBtn = screen.getByText(/get scores/i);
-    expect(getScoreBtn).toBeInTheDocument();
+    const submitBtn = screen.getByTestId(/submitBtn/i);
+    expect(submitBtn).toBeInTheDocument();
   });
 
   test("check click get scores Button then score renders", () => {
+
     render(
       <BrowserRouter>
-        <DisplayCard />
+        <DisplayCard card={card}/>
       </BrowserRouter>
     );
-    const getScoreBtn = screen.getByText(/get scores/i);
-    userEvent.click(getScoreBtn);
+    const submitBtn = screen.getByTestId(/submitBtn/i);
+    userEvent.click(submitBtn);
     const humanScore = screen.getByTestId(/humanScore/i);
     expect(humanScore).toBeInTheDocument();
     const statyScore = screen.getByTestId(/statyScore/i);
@@ -102,5 +105,4 @@ describe("Test card display section", () => {
     const neuroScore = screen.getByTestId(/neuroScore/i);
     expect(neuroScore).toBeInTheDocument();
   });
-
 });
