@@ -1,13 +1,13 @@
 import './App.css';
 import HorizontalLinearStepper from './components/game-intro/Stepper'
-import DisplayCard from "./components/display-card/DisplayCard";
 import { Route, Routes, useLocation } from "react-router-dom";
+import CardDeck from './components/display-card/CardDeck';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HorizontalLinearStepper />} />
-      <Route path="/game" element={<DisplayCard />} />
+      <Route path="/game" element={<CardDeck />} />
     </Routes>
   );
 }

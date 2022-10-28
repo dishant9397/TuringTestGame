@@ -162,3 +162,16 @@
 .display-questionZone .display-cardButton3 {
     background: rgba(51, 153, 153, 0.2);
 }
+
+.next-button-container {
+    width: 80%;
+    bottom: 3%;
+    position: absolute;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: 10%;
+}
+
+.next-button {
+    width: 100%;
+}
