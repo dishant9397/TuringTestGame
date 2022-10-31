@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
-import { render, screen } from "@testing-library/react";
+import { render, screen,fireEvent } from "@testing-library/react";
 import DisplayCard from "../display-card/DisplayCard";
 import { BrowserRouter} from "react-router-dom";
 import userEvent from "@testing-library/user-event";
@@ -19,6 +20,9 @@ describe("Test Display Card section", () => {
     neuralMachineTranslation: "The White House pushed to nuclear inspectors be sent as soon as possible to oversee the closure of North Korea's nuclear reactors.",
     neuralMachineScore: 0.935441,
   };
+
+  const choice="human";
+  const setChoice = jest.fn();
 
   beforeEach(async () => {
     const history = createBrowserHistory();
@@ -53,8 +57,20 @@ describe("Test Display Card section", () => {
         <DisplayCard card={card}/>
       </BrowserRouter>
     );
-    const question = screen.getByTestId(/humanButton/i);
-    expect(question).toBeInTheDocument();
+    const humanButton = screen.getByTestId(/humanButton/i);
+    expect(humanButton).toBeInTheDocument();
+  });
+
+  test("check clicking human Button marks selection", () => {
+    render(
+      <BrowserRouter history={history}>
+        <DisplayCard card={card} choice={choice} setChoice={setChoice}/>
+      </BrowserRouter>
+    );
+
+    const humanButton = screen.getByTestId(/humanButton/i);
+    fireEvent.click(humanButton);
+    expect(humanButton).toHaveStyle('background: rgba(63, 127, 191)');
   });
 
   test("check staty translation Button renders", () => {
@@ -63,8 +79,19 @@ describe("Test Display Card section", () => {
         <DisplayCard card={card}/>
       </BrowserRouter>
     );
-    const question = screen.getByTestId(/statyButton/i);
-    expect(question).toBeInTheDocument();
+    const statyButton = screen.getByTestId(/statyButton/i);
+    expect(statyButton).toBeInTheDocument();
+  });
+
+  test("check clicking staty translation Button marks selection", () => {
+    render(
+      <BrowserRouter history={history}>
+        <DisplayCard card={card} choice={choice} setChoice={setChoice}/>
+      </BrowserRouter>
+    );
+    const statyButton = screen.getByTestId(/statyButton/i);
+    fireEvent.click(statyButton);
+    expect(statyButton).toHaveStyle('background: rgba(51, 51, 153)');
   });
 
   test("check neuro translation Button renders", () => {
@@ -73,10 +100,20 @@ describe("Test Display Card section", () => {
         <DisplayCard card={card}/>
       </BrowserRouter>
     );
-    const question = screen.getByTestId(/neuroButton/i);
-    expect(question).toBeInTheDocument();
+    const neuroButton = screen.getByTestId(/neuroButton/i);
+    expect(neuroButton).toBeInTheDocument();
   });
 
+  test("check clicking neuro translation Button marks selection", () => {
+    render(
+      <BrowserRouter history={history}>
+        <DisplayCard card={card} choice={choice} setChoice={setChoice}/>
+      </BrowserRouter>
+    );
+    const neuroButton = screen.getByTestId(/neuroButton/i);
+    fireEvent.click(neuroButton);
+    expect(neuroButton).toHaveStyle('background: rgba(51, 153, 153)');
+  });
 
 
   test("check submit Button renders", () => {

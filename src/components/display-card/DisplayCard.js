@@ -77,7 +77,7 @@ function DisplayCard(props) {
                             </Button>
                             {neuroScore !== -1 && <Typography data-testid="neuroScore">{neuroScore}</Typography>}
                         </div>
-                        <Button onClick={onSubmit}>
+                        <Button data-testid="submitBtn" onClick={onSubmit}>
                             Submit
                         </Button>
                     </CardActions>
