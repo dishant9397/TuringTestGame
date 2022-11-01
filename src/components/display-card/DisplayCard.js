@@ -9,15 +9,17 @@ function DisplayCard(props) {
     const NEURO = "neuro";
     const card = props?.card
 
-    const [humanScore, setHumanScore] = React.useState(-1)
-    const [statyScore, setStatyScore] = React.useState(-1)
-    const [neuroScore, setNeuroScore] = React.useState(-1)
-    const {choice, setChoice} = props;
+
+    const {choice, setChoice, humanScore, setHumanScore, neuroScore, setNeuroScore, statyScore, setStatyScore,
+            humanIdentity, setHumanIdentity, statyIdentity, setStatyIdentity, neuroIdentity, setNeuroIdentity} = props;
 
     const onSubmit = () => {
         setHumanScore(card.humanScore)
         setStatyScore(card.statisticalMachineScore)
         setNeuroScore(card.neuralMachineScore)
+        setHumanIdentity(true)
+        setStatyIdentity(true)
+        setNeuroIdentity(true)
     }
 
     const handleClick = (id) => {
@@ -64,18 +66,21 @@ function DisplayCard(props) {
                                 {card.humanTranslation}
                             </Button>
                             {humanScore !== -1 && <Typography data-testid="humanScore">{humanScore}</Typography>}
+                            {humanIdentity && <Typography>{HUMAN}</Typography>}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none' }} className={currentChoice2} data-testid="statyButton" onClick={() => handleClick(STATY)}>
                                 {card.statisticalMachineTranslation}
                             </Button>
                             {statyScore !== -1 && <Typography data-testid="statyScore">{statyScore}</Typography>}
+                            {statyIdentity && <Typography>{STATY}</Typography>}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none' }} className={currentChoice3} data-testid="neuroButton" onClick={() => handleClick(NEURO)}>
                                 {card.neuralMachineTranslation}
                             </Button>
                             {neuroScore !== -1 && <Typography data-testid="neuroScore">{neuroScore}</Typography>}
+                            {neuroIdentity && <Typography>{NEURO}</Typography>}
                         </div>
                         <Button data-testid="submitBtn" onClick={onSubmit}>
                             Submit
