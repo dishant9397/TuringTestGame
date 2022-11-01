@@ -175,6 +175,13 @@
     background: rgba(51, 153, 153, 1);
 }
 
+.display-questionZone .identityImg {
+    width: 2rem;
+    height: 2rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
 .next-button-container {
     width: 80%;
     bottom: 3%;
@@ -187,3 +194,4 @@
 .next-button {
     width: 100%;
 }
+
