@@ -73,21 +73,21 @@ function DisplayCard(props) {
                                 {card.humanTranslation}
                             </Button>
                             {humanScore !== -1 && <Typography data-testid="humanScore">{humanScore}</Typography>}
-                            {humanIdentity && <img src={HumanImg} alt={HUMAN} title={HUMAN} className="identityImg" />}
+                            {humanIdentity && <img src={HumanImg} data-testid="humanIdentityImg" alt={HUMAN} title={HUMAN} className="identityImg" />}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none' }} className={currentChoice2} data-testid="statyButton" onClick={() => handleClick(STATY)}>
                                 {card.statisticalMachineTranslation}
                             </Button>
                             {statyScore !== -1 && <Typography data-testid="statyScore">{statyScore}</Typography>}
-                            {statyIdentity && <img src={StatyImg} alt={STATY} title={STATY} className="identityImg" />}
+                            {statyIdentity && <img src={StatyImg} data-testid="statyIdentityImg" alt={STATY} title={STATY} className="identityImg" />}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none' }} className={currentChoice3} data-testid="neuroButton" onClick={() => handleClick(NEURO)}>
                                 {card.neuralMachineTranslation}
                             </Button>
                             {neuroScore !== -1 && <Typography data-testid="neuroScore">{neuroScore}</Typography>}
-                            {neuroIdentity && <img src={NeuroImg} alt={NEURO} title={NEURO} className="identityImg" />}
+                            {neuroIdentity && <img src={NeuroImg} data-testid="neuroIdentityImg" alt={NEURO} title={NEURO} className="identityImg" />}
                         </div>
                         <Button data-testid="submitBtn" onClick={onSubmit}>
                             Submit
