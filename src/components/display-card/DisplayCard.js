@@ -2,6 +2,9 @@
 import * as React from 'react';
 import { Box, Button, Card, CardContent, Typography, CardActions } from "@material-ui/core";
 import Logo from "../game-intro/resources/logo.svg";
+import StatyImg from "./resources/staty.png";
+import NeuroImg from "./resources/neuro.png";
+import HumanImg from "./resources/human.png";
 
 function DisplayCard(props) {
     const HUMAN = "human";
@@ -9,9 +12,13 @@ function DisplayCard(props) {
     const NEURO = "neuro";
     const card = props?.card
 
-
-    const {choice, setChoice, humanScore, setHumanScore, neuroScore, setNeuroScore, statyScore, setStatyScore,
-            humanIdentity, setHumanIdentity, statyIdentity, setStatyIdentity, neuroIdentity, setNeuroIdentity} = props;
+    const [humanScore, setHumanScore] = React.useState(-1)
+    const [statyScore, setStatyScore] = React.useState(-1)
+    const [neuroScore, setNeuroScore] = React.useState(-1)
+    const [humanIdentity, setHumanIdentity] = React.useState(false)
+    const [statyIdentity, setStatyIdentity] = React.useState(false)
+    const [neuroIdentity, setNeuroIdentity] = React.useState(false)
+    const {choice, setChoice} = props;
 
     const onSubmit = () => {
         setHumanScore(card.humanScore)
@@ -66,21 +73,21 @@ function DisplayCard(props) {
                                 {card.humanTranslation}
                             </Button>
                             {humanScore !== -1 && <Typography data-testid="humanScore">{humanScore}</Typography>}
-                            {humanIdentity && <Typography>{HUMAN}</Typography>}
+                            {humanIdentity && <img src={HumanImg} alt={HUMAN} title={HUMAN} className="identityImg" />}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none' }} className={currentChoice2} data-testid="statyButton" onClick={() => handleClick(STATY)}>
                                 {card.statisticalMachineTranslation}
                             </Button>
                             {statyScore !== -1 && <Typography data-testid="statyScore">{statyScore}</Typography>}
-                            {statyIdentity && <Typography>{STATY}</Typography>}
+                            {statyIdentity && <img src={StatyImg} alt={STATY} title={STATY} className="identityImg" />}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none' }} className={currentChoice3} data-testid="neuroButton" onClick={() => handleClick(NEURO)}>
                                 {card.neuralMachineTranslation}
                             </Button>
                             {neuroScore !== -1 && <Typography data-testid="neuroScore">{neuroScore}</Typography>}
-                            {neuroIdentity && <Typography>{NEURO}</Typography>}
+                            {neuroIdentity && <img src={NeuroImg} alt={NEURO} title={NEURO} className="identityImg" />}
                         </div>
                         <Button data-testid="submitBtn" onClick={onSubmit}>
                             Submit
