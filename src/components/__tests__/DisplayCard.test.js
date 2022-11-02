@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
@@ -20,9 +21,19 @@ describe("Test Display Card section", () => {
     neuralMachineTranslation: "The White House pushed to nuclear inspectors be sent as soon as possible to oversee the closure of North Korea's nuclear reactors.",
     neuralMachineScore: 0.935441,
   };
+  const humanIdentity=false;
+  const statyIdentity=false;
+  const neuroIdentity=false;
 
   const choice="human";
   const setChoice = jest.fn();
+  const setHumanScore= jest.fn();
+  const setStatyScore= jest.fn();
+  const setNeuroScore= jest.fn();
+  const setHumanIdentity= jest.fn(_humanIdentity=> true);
+  const setStatyIdentity= jest.fn(_statyIdentity=>true);
+  const setNeuroIdentity= jest.fn(_neuroIdentity=>true);
+
 
   beforeEach(async () => {
     const history = createBrowserHistory();
@@ -126,11 +137,11 @@ describe("Test Display Card section", () => {
     expect(submitBtn).toBeInTheDocument();
   });
 
-  test("check click get scores Button then score renders", () => {
+  test("check click submit Button then score renders", () => {
 
     render(
       <BrowserRouter>
-        <DisplayCard card={card}/>
+        <DisplayCard card={card} setHumanScore={setHumanScore} setNeuroScore={setNeuroScore} setStatyScore={setStatyScore} setHumanIdentity={setHumanIdentity} setStatyIdentity={setStatyIdentity} setNeuroIdentity={setNeuroIdentity}/>
       </BrowserRouter>
     );
     const submitBtn = screen.getByTestId(/submitBtn/i);
@@ -141,5 +152,22 @@ describe("Test Display Card section", () => {
     expect(statyScore).toBeInTheDocument();
     const neuroScore = screen.getByTestId(/neuroScore/i);
     expect(neuroScore).toBeInTheDocument();
+  });
+
+  test("check click submit Button then identity images render", () => {
+
+    render(
+      <BrowserRouter>
+        <DisplayCard card={card} humanIdentity={false} statyIdentity={false} neuroIdentity={false}  setHumanScore={setHumanScore} setNeuroScore={setNeuroScore} setStatyScore={setStatyScore} />
+      </BrowserRouter>
+    );
+    const submitBtn = screen.getByTestId(/submitBtn/i);
+    userEvent.click(submitBtn);
+    const humanIdentity = screen.getByTestId(/humanIdentityImg/i);
+    expect(humanIdentity).toBeInTheDocument();
+    const statyIdentity = screen.getByTestId(/statyIdentityImg/i);
+    expect(statyIdentity).toBeInTheDocument();
+    const neuroIdentity = screen.getByTestId(/neuroIdentityImg/i);
+    expect(neuroIdentity).toBeInTheDocument();
   });
 });
