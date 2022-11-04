@@ -14,6 +14,7 @@ function CardDeck() {
     const [cardLength, setCardLength] = React.useState(cards.length)
     const [sentences, setSentences] = React.useState(location.state.sentences)
     const [choice, setChoice] = React.useState("");
+    const [showScore, setShowScore] = React.useState(false)
 
     React.useEffect(() => {
         changeCard()
@@ -25,14 +26,15 @@ function CardDeck() {
         setCurrentCard(cards[random])
         cards[random] = cards[cardLength - 1]
         cards[cardLength - 1] = currentCard
-        setSentences(s => s = s - 1)
-        setCardLength(length => length = length - 1)
+        setSentences(sentences - 1)
+        setCardLength(cardLength - 1)
         setChoice("")   // reset the state of the current choices.
+        setShowScore(false)
     }
 
     return (
         <div>
-            <DisplayCard card={currentCard} choice={choice} setChoice={setChoice}/>
+            <DisplayCard card={currentCard} choice={choice} setChoice={setChoice} showScore={showScore} setShowScore={setShowScore}/>
             <div className="next-button-container">
                 {sentences > 0 
                     ? (<Button onClick={changeCard} className="next-button">Next</Button>)
