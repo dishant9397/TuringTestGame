@@ -85,8 +85,8 @@
 }
 
 .display-questionZone {
-    width: 84%;
-    margin: 2vh 8vw;
+    width: 90vw;
+    margin: 2vh 5vw;
 }
 
 .display-questionZone .MuiCard-root {
@@ -137,7 +137,7 @@
 }
 
 .display-questionZone .MuiButtonBase-root {
-    width: 65vw;
+    width: 71vw;
     align-items: center;
     text-align: justify;
     font-size: 1.2rem;
@@ -182,16 +182,37 @@
     align-self: center;
 }
 
+.submit-button {
+    width: 100vw;
+    margin-top: 2%;
+}
+
 .next-button-container {
-    width: 80%;
-    bottom: 3%;
+    width: 90vw;
+    bottom: 1%;
     position: absolute;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    margin-left: 10%;
+    margin-left: 5vw;
 }
 
-.next-button {
+.next-button-container Button {
     width: 100%;
+    padding: 1%;
+    background-color:lightblue ;
+    border: 1px solid blue;
+    border-radius: 15px;
 }
 
+.score-typography {
+    padding: 1%;
+    margin-top: 2%;
+    width: 30%;
+    background-color:lightblue ;
+    border: 1px solid blue;
+    border-radius: 15px;
+}
+
+.score-class {
+    width: 4vw;
+}

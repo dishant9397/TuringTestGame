@@ -15,6 +15,7 @@ function CardDeck() {
     const [sentences, setSentences] = React.useState(location.state.sentences)
     const [choice, setChoice] = React.useState("");
     const [showScore, setShowScore] = React.useState(false)
+    const [score, setScore] = React.useState({player: 0, robot: 0})
 
     React.useEffect(() => {
         changeCard()
@@ -34,11 +35,11 @@ function CardDeck() {
 
     return (
         <div>
-            <DisplayCard card={currentCard} choice={choice} setChoice={setChoice} showScore={showScore} setShowScore={setShowScore}/>
+            <DisplayCard card={currentCard} choice={choice} setChoice={setChoice} showScore={showScore} setShowScore={setShowScore} score={score} setScore={setScore}/>
             <div className="next-button-container">
                 {sentences > 0 
-                    ? (<Button onClick={changeCard} className="next-button">Next</Button>)
-                    : (<Button className="next-button">End Game</Button>)}
+                    ? (showScore && <Button onClick={changeCard}>Next</Button>)
+                    : (showScore && <Button>End Game</Button>)}
             </div>
         </div>
     )
