@@ -179,7 +179,7 @@
     width: 2rem;
     height: 2rem;
     justify-content: center;
-    margin-top: 0.5rem;
+    align-self: center;
 }
 
 .next-button-container {

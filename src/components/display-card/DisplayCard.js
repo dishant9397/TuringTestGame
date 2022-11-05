@@ -7,30 +7,25 @@ import NeuroImg from "./resources/neuro.png";
 import HumanImg from "./resources/human.png";
 
 function DisplayCard(props) {
+
     const HUMAN = "human";
     const STATY = "staty";
     const NEURO = "neuro";
     const card = props?.card
 
-    const [humanScore, setHumanScore] = React.useState(-1)
-    const [statyScore, setStatyScore] = React.useState(-1)
-    const [neuroScore, setNeuroScore] = React.useState(-1)
-    const [humanIdentity, setHumanIdentity] = React.useState(false)
-    const [statyIdentity, setStatyIdentity] = React.useState(false)
-    const [neuroIdentity, setNeuroIdentity] = React.useState(false)
-    const {choice, setChoice} = props;
-
     const trimScore = (score) => {
         return (Math.trunc(score * Math.pow(10, 4)) / Math.pow(10, 4))
     }
+
+    const humanScore = trimScore(card.humanScore)
+    const statyScore = trimScore(card.statisticalMachineScore)
+    const neuroScore = trimScore(card.neuralMachineScore)
+
+    const {choice, setChoice} = props;
+    const {showScore, setShowScore} = props
     
     const onSubmit = () => {
-        setHumanScore(trimScore(card.humanScore))
-        setStatyScore(trimScore(card.statisticalMachineScore))
-        setNeuroScore(trimScore(card.neuralMachineScore))
-        setHumanIdentity(true)
-        setStatyIdentity(true)
-        setNeuroIdentity(true)
+        setShowScore(true)
     }
 
     const handleClick = (id) => {
@@ -76,22 +71,22 @@ function DisplayCard(props) {
                             <Button style={{ textTransform: 'none', justifyContent:'flex-start' }} className={currentChoice1} data-testid="humanButton" onClick={() => handleClick(HUMAN)}>
                                 {card.humanTranslation}
                             </Button>
-                            {humanScore !== -1 && <Typography data-testid="humanScore">{humanScore}</Typography>}
-                            {humanIdentity && <img src={HumanImg} data-testid="humanIdentityImg" alt={HUMAN} title={HUMAN} className="identityImg" />}
+                            {showScore && <Typography data-testid="humanScore">{humanScore}</Typography>}
+                            {showScore && <img src={HumanImg} data-testid="humanIdentityImg" alt={HUMAN} title={HUMAN} className="identityImg" />}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none', justifyContent:'flex-start' }} className={currentChoice2} data-testid="statyButton" onClick={() => handleClick(STATY)}>
                                 {card.statisticalMachineTranslation}
                             </Button>
-                            {statyScore !== -1 && <Typography data-testid="statyScore">{statyScore}</Typography>}
-                            {statyIdentity && <img src={StatyImg} data-testid="statyIdentityImg" alt={STATY} title={STATY} className="identityImg" />}
+                            {showScore && <Typography data-testid="statyScore">{statyScore}</Typography>}
+                            {showScore && <img src={StatyImg} data-testid="statyIdentityImg" alt={STATY} title={STATY} className="identityImg" />}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none', justifyContent:'flex-start' }} className={currentChoice3} data-testid="neuroButton" onClick={() => handleClick(NEURO)}>
                                 {card.neuralMachineTranslation}
                             </Button>
-                            {neuroScore !== -1 && <Typography data-testid="neuroScore">{neuroScore}</Typography>}
-                            {neuroIdentity && <img src={NeuroImg} data-testid="neuroIdentityImg" alt={NEURO} title={NEURO} className="identityImg" />}
+                            {showScore && <Typography data-testid="neuroScore">{neuroScore}</Typography>}
+                            {showScore && <img src={NeuroImg} data-testid="neuroIdentityImg" alt={NEURO} title={NEURO} className="identityImg" />}
                         </div>
                         <Button data-testid="submitBtn" onClick={onSubmit}>
                             Submit
