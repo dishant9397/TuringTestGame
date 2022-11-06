@@ -189,11 +189,11 @@
 
 .next-button-container {
     width: 90vw;
-    bottom: 1%;
-    position: absolute;
+    position: relative;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     margin-left: 5vw;
+    margin-top: 5vh;
 }
 
 .next-button-container Button {

@@ -66,7 +66,7 @@ function DisplayCard(props) {
                 </Typography>
             </div>
             <div className="display-questionZone">
-                <Card>
+                <Card style={{maxHeight: '60vh', overflow: 'auto'}}>
                     <CardContent data-testid="questionZone">
                         <Typography gutterBottom variant="h5" component="div">
                             The original sentence:
