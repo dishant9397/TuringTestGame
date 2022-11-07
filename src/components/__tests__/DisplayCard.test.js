@@ -21,19 +21,11 @@ describe("Test Display Card section", () => {
     neuralMachineTranslation: "The White House pushed to nuclear inspectors be sent as soon as possible to oversee the closure of North Korea's nuclear reactors.",
     neuralMachineScore: 0.935441,
   };
-  const humanIdentity=false;
-  const statyIdentity=false;
-  const neuroIdentity=false;
-
   const choice="human";
+  let showScore=false;
   const setChoice = jest.fn();
-  const setHumanScore= jest.fn();
-  const setStatyScore= jest.fn();
-  const setNeuroScore= jest.fn();
-  const setHumanIdentity= jest.fn(_humanIdentity=> true);
-  const setStatyIdentity= jest.fn(_statyIdentity=>true);
-  const setNeuroIdentity= jest.fn(_neuroIdentity=>true);
-
+  const setShowScore=jest.fn(showScore=true);
+  let score={player: 0, robot:0};
 
   beforeEach(async () => {
     const history = createBrowserHistory();
@@ -75,7 +67,7 @@ describe("Test Display Card section", () => {
   test("check clicking human Button marks selection", () => {
     render(
       <BrowserRouter history={history}>
-        <DisplayCard card={card} choice={choice} setChoice={setChoice}/>
+        <DisplayCard card={card} choice={choice} setChoice={setChoice} setShowScore={setShowScore} />
       </BrowserRouter>
     );
 
@@ -138,10 +130,9 @@ describe("Test Display Card section", () => {
   });
 
   test("check click submit Button then score renders", () => {
-
     render(
-      <BrowserRouter>
-        <DisplayCard card={card} setHumanScore={setHumanScore} setNeuroScore={setNeuroScore} setStatyScore={setStatyScore} setHumanIdentity={setHumanIdentity} setStatyIdentity={setStatyIdentity} setNeuroIdentity={setNeuroIdentity}/>
+      <BrowserRouter >
+        <DisplayCard card={card} showScore={showScore}  setShowScore={setShowScore} score={score}/>
       </BrowserRouter>
     );
     const submitBtn = screen.getByTestId(/submitBtn/i);
@@ -157,8 +148,8 @@ describe("Test Display Card section", () => {
   test("check click submit Button then identity images render", () => {
 
     render(
-      <BrowserRouter>
-        <DisplayCard card={card} humanIdentity={false} statyIdentity={false} neuroIdentity={false}  setHumanScore={setHumanScore} setNeuroScore={setNeuroScore} setStatyScore={setStatyScore} />
+      <BrowserRouter >
+        <DisplayCard card={card} showScore={showScore} setShowScore={setShowScore} score={score}/>
       </BrowserRouter>
     );
     const submitBtn = screen.getByTestId(/submitBtn/i);
@@ -169,5 +160,31 @@ describe("Test Display Card section", () => {
     expect(statyIdentity).toBeInTheDocument();
     const neuroIdentity = screen.getByTestId(/neuroIdentityImg/i);
     expect(neuroIdentity).toBeInTheDocument();
+  });
+
+  test("check click submit Button then player score renders", () => {
+
+    render(
+      <BrowserRouter >
+        <DisplayCard card={card} showScore={showScore} setShowScore={setShowScore} score={score}/>
+      </BrowserRouter>
+    );
+    const submitBtn = screen.getByTestId(/submitBtn/i);
+    userEvent.click(submitBtn);
+    const playerScore = screen.getByTestId('playerScore');
+    expect(playerScore).toBeInTheDocument();
+  });
+
+  test("check click submit Button then robot score renders", () => {
+
+    render(
+      <BrowserRouter >
+        <DisplayCard card={card} showScore={showScore} setShowScore={setShowScore} score={score}/>
+      </BrowserRouter>
+    );
+    const submitBtn = screen.getByTestId(/submitBtn/i);
+    userEvent.click(submitBtn);
+    const robotScore = screen.getByTestId('robotScore');
+    expect(robotScore).toBeInTheDocument();
   });
 });

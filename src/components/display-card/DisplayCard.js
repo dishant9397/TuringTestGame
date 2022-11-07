@@ -109,9 +109,9 @@ function DisplayCard(props) {
                     </CardActions>
                 </Card>
                 <div style={{ display:'flex' }}>
-                    {showScore && <Typography variant="h6" className="score-typography" align="left">Player's Score: {score.player}</Typography>}
+                    {showScore && <Typography variant="h6" className="score-typography" data-testid="playerScore" align="left">Player's Score: {score.player}</Typography>}
                     {showScore && <Typography style={{width: '40%'}}></Typography>}
-                    {showScore && <Typography variant="h6" className="score-typography" align="right">Robot's Score: {score.robot}</Typography>}
+                    {showScore && <Typography variant="h6" className="score-typography" data-testid="robotScore" align="right">Robot's Score: {score.robot}</Typography>}
                 </div>
             </div>
         </Box>
