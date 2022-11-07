@@ -49,9 +49,7 @@ describe("Test file uploader", () => {
       expect(nextBtn).toBeInTheDocument(),
       expect(nextBtn).toBeEnabled()
     );
-
   });
-
 });
 
 

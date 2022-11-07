@@ -11,7 +11,7 @@ function CardDeck() {
     const cards = location.state.cards
     
     const [currentCard, setCurrentCard] = React.useState([])
-    const [cardLength, setCardLength] = React.useState(cards.length)
+    const [cardLength, setCardLength] = React.useState(cards?.length)
     const [sentences, setSentences] = React.useState(location.state.sentences)
     const [choice, setChoice] = React.useState("");
     const [showScore, setShowScore] = React.useState(false)
@@ -41,8 +41,8 @@ function CardDeck() {
                     ? (showScore && <Button onClick={changeCard}>Next</Button>)
                     : (showScore &&
                         <div className="end-game-container">
-                            <Button style={{textAlign:"left", display:"block"}}>Start New Game</Button>
-                            <Button style={{textAlign:"right", display:"block"}}>Save Game</Button>
+                            <Button data-testid="newGameBtn" style={{textAlign:"left", display:"block"}}>Start New Game</Button>
+                            <Button data-testid="saveGameBtn" style={{textAlign:"right", display:"block"}}>Save Game</Button>
                         </div>
                     )}
             </div>
