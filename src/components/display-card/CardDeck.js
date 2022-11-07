@@ -39,7 +39,12 @@ function CardDeck() {
             <div className="next-button-container">
                 {sentences > 0 
                     ? (showScore && <Button onClick={changeCard}>Next</Button>)
-                    : (showScore && <Button>End Game</Button>)}
+                    : (showScore &&
+                        <div style={{display:'flex', justifyContent:'space-between', gap: '37vw'}}>
+                            <Button>Start a new game</Button>
+                            <Button>Save and continue game</Button>
+                        </div>
+                    )}
             </div>
         </div>
     )
