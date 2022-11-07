@@ -23,16 +23,33 @@ function DisplayCard(props) {
 
     const {choice, setChoice} = props;
     const {showScore, setShowScore} = props
+    const {score, setScore} = props
+
+    const calculateScore = () => {
+        if (choice === HUMAN) {
+            setScore(score => ({...score, player: score.player + 1}))
+        }
+        if (humanScore > statyScore && humanScore > neuroScore) {
+            setScore(score => ({...score, robot: score.robot + 1}))
+        }
+    }
     
     const onSubmit = () => {
-        setShowScore(true)
+        if (!showScore) {
+            calculateScore()
+            console.log(score)
+            setShowScore(true)
+        }
     }
 
     const handleClick = (id) => {
-        if (choice !== id) {
-            setChoice(id);
-        } else {
-            setChoice("");
+        if (!showScore) {
+            if (choice !== id) {
+                setChoice(id);
+            } else {
+                setChoice("");
+                setShowScore(false)
+            }
         }
     }
 
@@ -49,7 +66,7 @@ function DisplayCard(props) {
                 </Typography>
             </div>
             <div className="display-questionZone">
-                <Card>
+                <Card style={{maxHeight: '60vh', overflow: 'auto'}}>
                     <CardContent data-testid="questionZone">
                         <Typography gutterBottom variant="h5" component="div">
                             The original sentence:
@@ -71,28 +88,31 @@ function DisplayCard(props) {
                             <Button style={{ textTransform: 'none', justifyContent:'flex-start' }} className={currentChoice1} data-testid="humanButton" onClick={() => handleClick(HUMAN)}>
                                 {card.humanTranslation}
                             </Button>
-                            {showScore && <Typography data-testid="humanScore">{humanScore}</Typography>}
+                            {showScore && <Typography data-testid="humanScore" className="score-class">{humanScore}</Typography>}
                             {showScore && <img src={HumanImg} data-testid="humanIdentityImg" alt={HUMAN} title={HUMAN} className="identityImg" />}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none', justifyContent:'flex-start' }} className={currentChoice2} data-testid="statyButton" onClick={() => handleClick(STATY)}>
                                 {card.statisticalMachineTranslation}
                             </Button>
-                            {showScore && <Typography data-testid="statyScore">{statyScore}</Typography>}
+                            {showScore && <Typography data-testid="statyScore" className="score-class">{statyScore}</Typography>}
                             {showScore && <img src={StatyImg} data-testid="statyIdentityImg" alt={STATY} title={STATY} className="identityImg" />}
                         </div>
                         <div style={{ display:'flex' }}>
                             <Button style={{ textTransform: 'none', justifyContent:'flex-start' }} className={currentChoice3} data-testid="neuroButton" onClick={() => handleClick(NEURO)}>
                                 {card.neuralMachineTranslation}
                             </Button>
-                            {showScore && <Typography data-testid="neuroScore">{neuroScore}</Typography>}
+                            {showScore && <Typography data-testid="neuroScore" className="score-class">{neuroScore}</Typography>}
                             {showScore && <img src={NeuroImg} data-testid="neuroIdentityImg" alt={NEURO} title={NEURO} className="identityImg" />}
                         </div>
-                        <Button data-testid="submitBtn" onClick={onSubmit}>
-                            Submit
-                        </Button>
+                        {choice !== "" && <Button className="submit-button" data-testid="submitBtn" onClick={onSubmit}>Submit</Button>}
                     </CardActions>
                 </Card>
+                <div style={{ display:'flex' }}>
+                    {showScore && <Typography variant="h6" className="score-typography" align="left">Player's Score: {score.player}</Typography>}
+                    {showScore && <Typography style={{width: '40%'}}></Typography>}
+                    {showScore && <Typography variant="h6" className="score-typography" align="right">Robot's Score: {score.robot}</Typography>}
+                </div>
             </div>
         </Box>
     )
