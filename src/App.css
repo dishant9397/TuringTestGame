@@ -202,6 +202,17 @@
     background-color:lightblue ;
     border: 1px solid blue;
     border-radius: 15px;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: rgb(76,76,76);
+    text-transform: none;
+}
+
+.next-button-container .end-game-container {
+    display:flex;
+    justifyContent:space-between;
+    gap: 37vw;
 }
 
 .score-typography {
