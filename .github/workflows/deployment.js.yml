@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "TTG-5-fix-deployment-1" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "TTG-5-fix-deployment-1" ]
 
 jobs:
   build:
