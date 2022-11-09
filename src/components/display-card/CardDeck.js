@@ -29,7 +29,7 @@ function CardDeck() {
         cards[cardLength - 1] = currentCard
         setSentences(sentences - 1)
         setCardLength(cardLength - 1)
-        setChoice("")   // reset the state of the current choices.
+        setChoice("")
         setShowScore(false)
     }
 
