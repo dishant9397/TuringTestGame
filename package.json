@@ -2,7 +2,7 @@
   "name": "turing-test-game",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://dishant9397.github.io/The-Brainiacs-FSE/TuringTestGame",
+  "homepage": "http://the-brainiacs-fse.github.io/TuringTestGame/",
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@mui/material": "^5.10.8",
