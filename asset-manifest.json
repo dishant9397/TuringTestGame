@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.290eb14e.css",
-    "main.js": "/static/js/main.8db47948.js",
-    "static/js/787.3bc6ba6e.chunk.js": "/static/js/787.3bc6ba6e.chunk.js",
-    "static/media/start.gif": "/static/media/start.cfb2b7b6ea2193573328.gif",
-    "static/media/logo.svg": "/static/media/logo.033beacdd4b1c6de5481f89aee991a58.svg",
-    "index.html": "/index.html",
-    "main.290eb14e.css.map": "/static/css/main.290eb14e.css.map",
-    "main.8db47948.js.map": "/static/js/main.8db47948.js.map",
-    "787.3bc6ba6e.chunk.js.map": "/static/js/787.3bc6ba6e.chunk.js.map"
+    "main.css": "/The-Brainiacs-FSE/TuringTestGame/static/css/main.290eb14e.css",
+    "main.js": "/The-Brainiacs-FSE/TuringTestGame/static/js/main.b7e8857d.js",
+    "static/js/787.3bc6ba6e.chunk.js": "/The-Brainiacs-FSE/TuringTestGame/static/js/787.3bc6ba6e.chunk.js",
+    "static/media/start.gif": "/The-Brainiacs-FSE/TuringTestGame/static/media/start.cfb2b7b6ea2193573328.gif",
+    "static/media/logo.svg": "/The-Brainiacs-FSE/TuringTestGame/static/media/logo.033beacdd4b1c6de5481f89aee991a58.svg",
+    "index.html": "/The-Brainiacs-FSE/TuringTestGame/index.html",
+    "main.290eb14e.css.map": "/The-Brainiacs-FSE/TuringTestGame/static/css/main.290eb14e.css.map",
+    "main.b7e8857d.js.map": "/The-Brainiacs-FSE/TuringTestGame/static/js/main.b7e8857d.js.map",
+    "787.3bc6ba6e.chunk.js.map": "/The-Brainiacs-FSE/TuringTestGame/static/js/787.3bc6ba6e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.290eb14e.css",
-    "static/js/main.8db47948.js"
+    "static/js/main.b7e8857d.js"
   ]
 }
