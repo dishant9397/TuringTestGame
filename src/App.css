@@ -151,27 +151,11 @@
     margin-left: 0px;
 }
 
-.display-questionZone .display-cardButton1 {
-    background: rgba(63, 127, 191, 0.2);
-}
-
-.display-questionZone .display-cardButton1-clicked {
-    background: rgba(63, 127, 191, 1);
-}
-
-.display-questionZone .display-cardButton2 {
-    background: rgba(51, 51, 153, 0.1);
-}
-
-.display-questionZone .display-cardButton2-clicked {
-    background: rgba(51, 51, 153, 0.8);
-}
-
-.display-questionZone .display-cardButton3 {
+.display-questionZone .display-cardButton {
     background: rgba(51, 153, 153, 0.2);
 }
 
-.display-questionZone .display-cardButton3-clicked {
+.display-questionZone .display-cardButton-clicked {
     background: rgba(51, 153, 153, 1);
 }
 
