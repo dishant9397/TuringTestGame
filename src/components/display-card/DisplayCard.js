@@ -53,9 +53,9 @@ function DisplayCard(props) {
         }
     }
 
-    const currentChoice1 = choice === HUMAN ? "display-cardButton-clicked" : "display-cardButton";
-    const currentChoice2 = choice === STATY ? "display-cardButton-clicked" : "display-cardButton";
-    const currentChoice3 = choice === NEURO ? "display-cardButton-clicked" : "display-cardButton";
+    const currentChoice1 = choice === HUMAN ? "display-cardButton1-clicked" : "display-cardButton1";
+    const currentChoice2 = choice === STATY ? "display-cardButton2-clicked" : "display-cardButton2";
+    const currentChoice3 = choice === NEURO ? "display-cardButton3-clicked" : "display-cardButton3";
 
     return (
         <Box sx={{ width: '100%' }} className="box">
