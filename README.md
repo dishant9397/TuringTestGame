@@ -85,7 +85,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Application Links
 * Production: https://turing-test-game.netlify.app/
 * Staging: https://turing-test-game-stg.netlify.app/
-* Devvelopment: https://turing-test-game-dev.netlify.app/
+* Development: https://turing-test-game-dev.netlify.app/
 
 ## Contributors
 * Siyang Zhang
