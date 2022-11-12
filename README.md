@@ -83,8 +83,9 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## Application Links
-* Production: https://turing-test-game.herokuapp.com/
-* Staging: https://turing-test-game-stg.herokuapp.com/
+* Production: https://turing-test-game.netlify.app/
+* Staging: https://turing-test-game-stg.netlify.app/
+* Devvelopment: https://turing-test-game-dev.netlify.app/
 
 ## Contributors
 * Siyang Zhang
