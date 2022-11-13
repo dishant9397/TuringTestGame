@@ -28,11 +28,11 @@ function Translation(props) {
     return (
         <div>
             <div style={{ display:'flex' }}>
-                <Button style={{ textTransform: 'none', justifyContent:'flex-start' }} className={className} data-testid="humanButton" onClick={handleClick}>
+                <Button style={{ textTransform: 'none', justifyContent:'flex-start' }} className={className} data-testid="selectBtn" onClick={handleClick}>
                     {details.translation}
                 </Button>
-                {score.enable && <Typography data-testid="humanScore" className="score-class">{details.score}</Typography>}
-                {score.enable && <img src={details.image} data-testid="humanIdentityImg" alt={details.type} title={details.type} className="identityImg" />}
+                {score.enable && <Typography data-testid="score" className="score-class">{details.score}</Typography>}
+                {score.enable && <img src={details.image} data-testid="identityImg" alt={details.type} title={details.type} className="identityImg" />}
             </div>
         </div> 
     )

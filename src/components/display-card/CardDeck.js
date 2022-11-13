@@ -72,7 +72,7 @@ function CardDeck() {
                 setVisitedChoices={setVisitecChoices}/>
             <div className="next-button-container">
                 {sentences > 0 
-                    ? (score.enable && <Button onClick={changeCard}>Next</Button>)
+                    ? (score.enable && <Button data-testid="nextBtn" onClick={changeCard}>Next</Button>)
                     : (score.enable &&
                         <div className="end-game-container">
                             <Button data-testid="newGameBtn" style={{textAlign:"left", display:"block"}} onClick={onStartNewGame}>Start New Game</Button>
