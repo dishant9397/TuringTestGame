@@ -95,14 +95,12 @@
 
 .display-questionZone .MuiCardContent-root {
     margin: 2vh 3vw;
-
 }
 
 .display-questionZone .MuiTypography-body1 {
     font-size: 1.2rem;
     font-style: italic;
     margin: auto 2vw;
-    color: rgb(76,76,76);
     text-align: justify;
 }
 
@@ -110,7 +108,6 @@
     font-size: 1rem;
     font-style: italic;
     margin: auto 2vw;
-    color: dimgrey;
     text-align: justify;
 }
 
@@ -125,7 +122,6 @@
     font-size: 1.2rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    color: darkslategrey;
     margin-top: 1vh;
 }
 
@@ -151,28 +147,16 @@
     margin-left: 0px;
 }
 
-.display-questionZone .display-cardButton1 {
-    background: rgba(63, 127, 191, 0.2);
+.display-questionZone .display-cardButton {
+    background: rgba(173, 216, 230, 0.2);
+    border: 1px solid blue;
+    border-radius: 15px;
 }
 
-.display-questionZone .display-cardButton1-clicked {
-    background: rgba(63, 127, 191, 1);
-}
-
-.display-questionZone .display-cardButton2 {
-    background: rgba(51, 51, 153, 0.1);
-}
-
-.display-questionZone .display-cardButton2-clicked {
-    background: rgba(51, 51, 153, 0.8);
-}
-
-.display-questionZone .display-cardButton3 {
-    background: rgba(51, 153, 153, 0.2);
-}
-
-.display-questionZone .display-cardButton3-clicked {
-    background: rgba(51, 153, 153, 1);
+.display-questionZone .display-cardButton-clicked {
+    background: lightblue;
+    border: 1px solid blue;
+    border-radius: 15px;
 }
 
 .display-questionZone .identityImg {
@@ -210,8 +194,8 @@
 }
 
 .next-button-container .end-game-container {
-    display:flex;
-    justifyContent:space-between;
+    display: flex;
+    justify-content: space-between;
     gap: 37vw;
 }
 
