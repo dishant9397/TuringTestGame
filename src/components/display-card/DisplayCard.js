@@ -18,7 +18,7 @@ function DisplayCard(props) {
     const {
         choice, setChoice,
         score, setScore,
-        setVisitedCards, setVisitedChoices} = props;
+        setVisitedRecords} = props;
 
 
     const trimScore = (score) => {
@@ -68,13 +68,12 @@ function DisplayCard(props) {
         if (!score.enable) {
             calculateScore()
             setScore(score => ({...score, enable: true}))
-            setVisitedCards(visitedCards => [
-                ...visitedCards,
-                card
-            ])
-            setVisitedChoices(visitedChoices => [
-                ...visitedChoices,
-                choice
+            setVisitedRecords(records => [
+                ...records,
+                {
+                    ...card,
+                    "choice": choice
+                }
             ])
         }
     }

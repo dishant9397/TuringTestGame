@@ -20,8 +20,7 @@ function CardDeck() {
     const [score, setScore] = React.useState({player: 0, robot: 0, enable: false})
     const [order, setOrder] = React.useState([0, 1, 2])
     const [csvRecord, setCsvRecord] = React.useState([])
-    const [visitedCards, setVisitedCards] = React.useState([])
-    const [visitecChoices, setVisitecChoices] = React.useState([])
+    const [visitedRecords, setVisitedRecords] = React.useState([])
 
     React.useEffect(() => {
         changeCard()
@@ -58,7 +57,7 @@ function CardDeck() {
 
     // write the log in the csv record
     const onSaveGame = () => {
-        setCsvRecord(csvHelper(visitedCards, visitecChoices));
+        setCsvRecord(csvHelper(visitedRecords));
     }
 
     return (
@@ -68,8 +67,8 @@ function CardDeck() {
                 choice={choice} setChoice={setChoice}
                 score={score} setScore={setScore}
                 order={order}
-                setVisitedCards={setVisitedCards}
-                setVisitedChoices={setVisitecChoices}/>
+                setVisitedRecords={setVisitedRecords}
+            />
             <div className="next-button-container">
                 {sentences > 0 
                     ? (score.enable && <Button data-testid="nextBtn" onClick={changeCard}>Next</Button>)

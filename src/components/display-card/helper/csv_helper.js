@@ -1,21 +1,22 @@
-const csvHelper = (cards, choices) => {
+const csvHelper = (records) => {
     const headers = [
-        "id",
-        "original",
-        "reference",
-        "human translation",
-        "neuro translation",
-        "staty translation",
-        "player's choice"
+        "Id",
+        "Original",
+        "Reference",
+        "HumanTranslation",
+        "NeuroTranslation",
+        "StatyTranslation",
+        "PlayerChoice"
     ];
-    const parsedArr = cards.map(
+    const parsedArr = records.map(
         (card, index) => {
             const id = [`${index + 1}`]
             const cardArr = Object.values(card)
             const originToHuman = cardArr.slice(0, 3)
             const neuroTrans = cardArr[4]
             const statyTrans = cardArr[6]
-            return [id, originToHuman, neuroTrans, statyTrans, choices[index]].flat()
+            const choice = cardArr[8]
+            return [id, originToHuman, neuroTrans, statyTrans, choice].flat()
         }
     )
     const csvFile = [headers, ...parsedArr]
