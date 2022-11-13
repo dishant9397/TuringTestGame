@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter} from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { LocationDisplay } from "../../App";
 import userEvent from "@testing-library/user-event";
-import {createMemoryHistory } from "history";
+import { createMemoryHistory } from "history";
 import CardDeck from "../display-card/CardDeck";
-import * as routeData from 'react-router'
+import * as routeData from "react-router";
 
 const card = {
   original:
@@ -25,18 +25,19 @@ const card = {
 };
 const cards = [card, card, card];
 const mockLocation = {
-  pathname: '/game',
-  hash: '',
-  search: '',
-  state:  { cards: cards }
-}
-const showScore=true;
-const sentences=0;
+  pathname: "/game",
+  hash: "",
+  search: "",
+  state: { cards: cards },
+};
+const order = [0, 1, 2];
+const sentence = 0;
+const sentences = 3;
+const score = { player: 0, robot: 0, enable: true };
 
 describe("Test CardDeck section", () => {
-
   beforeEach(() => {
-    jest.spyOn(routeData, 'useLocation').mockReturnValue(mockLocation)
+    jest.spyOn(routeData, "useLocation").mockReturnValue(mockLocation);
   });
   afterEach(() => {
     jest.restoreAllMocks();
@@ -44,7 +45,6 @@ describe("Test CardDeck section", () => {
   afterAll(() => {
     jest.resetAllMocks();
   });
-
 
   test("routes to Card Deck components", () => {
     const route = "/game";
@@ -58,33 +58,43 @@ describe("Test CardDeck section", () => {
     expect(screen.getByTestId("location-display")).toHaveTextContent(route);
   });
 
-  test("check new game Button renders when no sentences left and score displayed", async() => {
+  test("check new game Button renders when no sentences left and score displayed", async () => {
     const history = createMemoryHistory();
 
-    history.push('/game');
+    history.push("/game");
     render(
-      <MemoryRouter cards={cards} initialEntries={[{ pathname: '/game', search: 'Start New Game', cards:{cards} }]}>
-        <CardDeck cards={cards} showScore={showScore} sentences={sentences}/>
+      <MemoryRouter
+        cards={cards}
+        initialEntries={[
+          { pathname: "/game", search: "Start New Game", cards: { cards } },
+        ]}
+      >
+        <CardDeck cards={cards} sentences={sentence} score={score} />
       </MemoryRouter>
     );
-    const neuroButton = screen.getByTestId(/neuroButton/i);
-    userEvent.click(neuroButton);
+    const selectButton = screen.getAllByTestId(/selectBtn/i)[0];
+    userEvent.click(selectButton);
     const submitBtn = screen.getByTestId(/submitBtn/i);
     userEvent.click(submitBtn);
     const newGameBtn = screen.getByTestId(/newGameBtn/i);
     expect(newGameBtn).toBeInTheDocument();
   });
 
-  test("check save game Button renders when no sentences left and score displayed",async () => {
+  test("check save game Button renders when no sentences left and score displayed", async () => {
     const route = "/game";
 
     render(
       <MemoryRouter initialEntries={[route]} cards={cards}>
-        <CardDeck card={card} cards={cards} sentences={sentences} />
+        <CardDeck
+          card={card}
+          cards={cards}
+          sentences={sentence}
+          score={score}
+        />
       </MemoryRouter>
     );
-    const neuroButton = screen.getByTestId(/neuroButton/i);
-    userEvent.click(neuroButton);
+    const selectButton = screen.getAllByTestId(/selectBtn/i)[0];
+    userEvent.click(selectButton);
     const submitBtn = screen.getByTestId(/submitBtn/i);
     userEvent.click(submitBtn);
     const saveGameBtn = screen.getByTestId(/saveGameBtn/i);
