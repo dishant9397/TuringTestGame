@@ -1,25 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import HorizontalLinearStepper from './components/game-intro/Stepper'
+import { Route, Routes, useLocation } from "react-router-dom";
+import CardDeck from './components/display-card/CardDeck';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<HorizontalLinearStepper />} />
+      <Route path="/game" element={<CardDeck />} />
+    </Routes>
   );
+}
+
+export const LocationDisplay = () => {
+  const location = useLocation()
+
+  return <div data-testid="location-display">{location.pathname}</div>
 }
 
 export default App;

@@ -1,38 +1,213 @@
-.App {
-  text-align: center;
+.background {
+    pointer-events: none;
+    opacity: 0.3;
+    position: fixed;
+    align-content: center;
+    padding-top: 10%;
+    padding-left: 30%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.start-content {
+    position: absolute;
+    width: 80vw;
+    height: 45vw;
+    margin-top: 0.8vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.start-buttonArea {
+    margin-top: 85vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.start-fileArea {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20vw;
 }
 
-.App-link {
-  color: #61dafb;
+.start-fileArea .start-reminder {
+    text-align: center;
+    margin-bottom: 1vw;
+    font-family: "Times New Roman";
+    font-size: 1.6em;
+    font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.start-intro {
+    font-family: Arial;
+}
+
+.start-intro .start-introContent {
+    font-family: Arial;
+    font-size: 1rem;
+    margin-top: 1vw;
+}
+
+.start-intro .start-introContent .start-introContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 1vw;
+}
+
+.start-intro .start-introContent .start-introItem {
+    width: 30vw;
+}
+
+.start-submit-button {
+    position: absolute;
+    margin-left: 85vw;
+    margin-top: 33vh;
+}
+
+.start-game {
+    z-index: 1000;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-top: 5vw;
+}
+
+.display-captionZone {
+    width: 90%;
+    margin: 5vh 5vw;
+}
+
+.display-captionZone .display-caption {
+    font-size: 2.5rem;
+    font-family: 'Silkscreen', cursive;
+    font-weight: bold;
+    color: darkslateblue;
+}
+
+.display-questionZone {
+    width: 90vw;
+    margin: 2vh 5vw;
+}
+
+.display-questionZone .MuiCard-root {
+    height: 100%;
+}
+
+.display-questionZone .MuiCardContent-root {
+    margin: 2vh 3vw;
+}
+
+.display-questionZone .MuiTypography-body1 {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: auto 2vw;
+    text-align: justify;
+}
+
+.display-questionZone .MuiTypography-body2 {
+    font-size: 1rem;
+    font-style: italic;
+    margin: auto 2vw;
+    text-align: justify;
+}
+
+.display-questionZone .MuiTypography-h5 {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+.display-questionZone .MuiTypography-h6 {
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin-top: 1vh;
+}
+
+.display-questionZone .MuiCardActions-root {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+.display-questionZone .MuiButtonBase-root {
+    width: 71vw;
+    align-items: center;
+    text-align: justify;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: rgb(76,76,76);
+    margin: 0vh 0vw 0.5vh;
+}
+
+.display-questionZone .MuiCardActions-spacing > :not(:first-child){
+    margin-left: 0px;
+}
+
+.display-questionZone .display-cardButton {
+    background: rgba(173, 216, 230, 0.2);
+    border: 1px solid blue;
+    border-radius: 15px;
+}
+
+.display-questionZone .display-cardButton-clicked {
+    background: lightblue;
+    border: 1px solid blue;
+    border-radius: 15px;
+}
+
+.display-questionZone .identityImg {
+    width: 2rem;
+    height: 2rem;
+    justify-content: center;
+    align-self: center;
+}
+
+.submit-button {
+    width: 100vw;
+    margin-top: 2%;
+}
+
+.next-button-container {
+    width: 90vw;
+    position: relative;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: 5vw;
+    margin-top: 5vh;
+}
+
+.next-button-container Button {
+    width: 100%;
+    padding: 1%;
+    background-color:lightblue ;
+    border: 1px solid blue;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: rgb(76,76,76);
+    text-transform: none;
+}
+
+.next-button-container .end-game-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 37vw;
+}
+
+.score-typography {
+    padding: 1%;
+    margin-top: 2%;
+    width: 30%;
+    background-color:lightblue ;
+    border: 1px solid blue;
+    border-radius: 15px;
+}
+
+.score-class {
+    width: 4vw;
 }

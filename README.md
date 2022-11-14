@@ -4,6 +4,11 @@ This is the Turing Test Game Repository by the team **"The Brainiacs"** that wil
 ## Project Description
 The project is an interactive Turing test game for player and game admin. The target players of the game are visitors in outreach events. A set of sentences, including one in the original language and several translations of different quality, is shown to the player. The player is challenged to identify the human translation from the set. All the Machine Traslation is from the National Research Council of Canada’s (NRC) Multilingual Text Processing team.
 
+## Project Roadmap
+
+* Jira project to track and document user stories/features and sprints [link](https://siyangzhang.atlassian.net/jira/software/projects/TTG/boards/2).
+* Bi-weekly team meeting with Daniel on every Tuesday, 4pm
+* Bi-weekly team meeting with Jackie on every Monday, 11:30am, also keep updated with Slack.
 
 ## Milestones
 Here are the milestones that we would be reaching:
@@ -34,6 +39,9 @@ A game admin panel is used by NRC staff to start the game by choosing the game p
 Log user decisions in the game play.(question)
 When game ends, allow game admin to save the player log for further analysis.
 
+## User Experience Flowchart   
+* [Lucid chart link](https://lucid.app/lucidchart/558ca1b9-91ad-4aba-b89b-14e96a641019/edit?viewport_loc=61%2C-156%2C1935%2C1555%2C0_0&invitationId=inv_673d2537-0e21-4ddd-bd03-db72b98c2599#).
+
 ## User Stories
 
 ### Game Admin
@@ -48,7 +56,7 @@ When game ends, allow game admin to save the player log for further analysis.
 ## Future Work
 *Details to be added later*
 
-## Available Scripts to run the game
+## Available Scripts to run the game locally
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### `npm start`
@@ -74,6 +82,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Application Links
+* Production: https://turing-test-game.netlify.app/
+* Staging: https://turing-test-game-stg.netlify.app/
+
 ## Contributors
 * Siyang Zhang
 * Dishant Patel
@@ -82,46 +94,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Documents
 * [Project Requirements](docs/Project%20Requirements.docx)
 * [Presentation](docs/Presentation.pptx)
-
-## Meeting Artifacts
-
-### Meeting on 4th.October
-
-#### People
-
-* Siyang Zhang 
-* Jackie
-
-#### Discussed topic
-
-* Clarify questions, schedule meeting time, set up slack channel for further communicate
-
-#### Questions and anwsers
-
-1. Check what tech stacks are expected: react, nodejs?
-* no hard requirements, just focus on portability, a web application will be preferred 
-
-2. Any examples for NLP API, especially for input data format and expected output?
-* Only two input, one is the local tsv file to upload, the other is the number of sentences/the number of game rounds
-* Therefore one feature to support upload tsc file from local, the other to specify the number fo sentences
-
-3. For logging games, should we store the log locally or within some database?
-* Currently the log output format will also be tsv file stored.
-
-4. What's the scale of sentence tuples, size/number of tuples?
-* 1 tuple contains 5 sentences, thousands of sentences within one file, small enough to parse easily
-* Randomly draw specified number of sentences from the file provided 
-
-5. Is the admin going to open up a game for a player like at the game lounges?
-* doesn't need this feature, since only one player and no competitor
-
-#### Next meeting plan
-
-* bi-weekly on Monday 11:30am
-
-#### Action for next meeting
-
-* Nothing for now
-
-
-
