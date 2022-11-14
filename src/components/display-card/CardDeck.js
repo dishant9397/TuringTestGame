@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 import {useLocation, useNavigate} from 'react-router-dom';
 import DisplayCard from './DisplayCard';
 import csvHelper from "./helper/csv_helper";
-import CSVDownload from "react-csv/src/components/Download";
+import {CSVDownload} from "react-csv";
 
 
 function CardDeck() {
