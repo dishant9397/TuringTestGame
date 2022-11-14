@@ -14,9 +14,12 @@ function DisplayCard(props) {
     const NEURO = "NEURO"
 
     const card = props?.card
-    const {choice, setChoice} = props;
-    const {score, setScore} = props
     const order = props?.order
+    const {
+        choice, setChoice,
+        score, setScore,
+        setVisitedRecords} = props;
+
 
     const trimScore = (score) => {
         return (Math.trunc(score * Math.pow(10, 4)) / Math.pow(10, 4))
@@ -65,6 +68,13 @@ function DisplayCard(props) {
         if (!score.enable) {
             calculateScore()
             setScore(score => ({...score, enable: true}))
+            setVisitedRecords(records => [
+                ...records,
+                {
+                    ...card,
+                    "choice": choice
+                }
+            ])
         }
     }
 

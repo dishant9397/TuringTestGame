@@ -1,21 +1,26 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react';
-import { Box, Button, Card, CardContent, Typography, CardActions } from "@material-ui/core";
-import Logo from "../game-intro/resources/logo.svg";
-import { useLocation } from 'react-router-dom';
+import { Button } from "@material-ui/core";
+import {useLocation, useNavigate} from 'react-router-dom';
 import DisplayCard from './DisplayCard';
+import csvHelper from "./helper/csv_helper";
+import CSVDownload from "react-csv/src/components/Download";
+
 
 function CardDeck() {
 
     const location = useLocation()
     const cards = location.state.cards
-    
+    const navigate = useNavigate()
+
     const [currentCard, setCurrentCard] = React.useState([])
     const [cardLength, setCardLength] = React.useState(cards?.length)
     const [sentences, setSentences] = React.useState(location.state.sentences)
     const [choice, setChoice] = React.useState("");
     const [score, setScore] = React.useState({player: 0, robot: 0, enable: false})
     const [order, setOrder] = React.useState([0, 1, 2])
+    const [csvRecord, setCsvRecord] = React.useState([])
+    const [visitedRecords, setVisitedRecords] = React.useState([])
 
     React.useEffect(() => {
         changeCard()
@@ -45,18 +50,36 @@ function CardDeck() {
         randomizeOrder()
     }
 
+    // start a new game without saving log array
+    const onStartNewGame = () => {
+        navigate('/');
+    }
+
+    // write the log in the csv record
+    const onSaveGame = () => {
+        setCsvRecord(csvHelper(visitedRecords));
+    }
+
     return (
         <div>
-            <DisplayCard card={currentCard} choice={choice} setChoice={setChoice} score={score} setScore={setScore} order={order}/>
+            <DisplayCard
+                card={currentCard}
+                choice={choice} setChoice={setChoice}
+                score={score} setScore={setScore}
+                order={order}
+                setVisitedRecords={setVisitedRecords}
+            />
             <div className="next-button-container">
                 {sentences > 0 
                     ? (score.enable && <Button data-testid="nextBtn" onClick={changeCard}>Next</Button>)
                     : (score.enable &&
                         <div className="end-game-container">
-                            <Button data-testid="newGameBtn" style={{textAlign:"left", display:"block"}}>Start New Game</Button>
-                            <Button data-testid="saveGameBtn" style={{textAlign:"right", display:"block"}}>Save Game</Button>
+                            <Button data-testid="newGameBtn" style={{textAlign:"left", display:"block"}} onClick={onStartNewGame}>Start New Game</Button>
+                            <Button data-testid="saveGameBtn" style={{textAlign:"right", display:"block"}} onClick={onSaveGame}>Save Game</Button>
                         </div>
                     )}
+                {csvRecord.length !== 0 &&
+                    <CSVDownload data={csvRecord} target="_blank" separator={"\t"}/>}
             </div>
         </div>
     )
