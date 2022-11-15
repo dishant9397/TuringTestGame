@@ -33,17 +33,22 @@
 .start-fileArea .start-reminder {
     text-align: center;
     margin-bottom: 1vw;
-    font-family: "Times New Roman";
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.6em;
     font-weight: bold;
 }
 
 .start-intro {
-    font-family: Arial;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.start-intro .MuiTypography-h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 
 .start-intro .start-introContent {
-    font-family: Arial;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     margin-top: 1vw;
 }
