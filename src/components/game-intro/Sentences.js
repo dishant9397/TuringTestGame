@@ -17,7 +17,7 @@ function Sentences(props) {
                     value={sentences} label={"Number of Sentences"} type="number" />
                 <br />
                 {
-                    (sentences > totalCards || sentences < 0 ) &&
+                    ( sentences > totalCards || sentences < 0 ) &&
                     <div style={{ color: "red" }}>
                         The file that you uploaded previously contains only {totalCards} sentences from which you are requesting {sentences} sentences which is an invalid entry.
                     </div>
