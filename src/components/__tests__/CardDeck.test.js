@@ -6,6 +6,7 @@ import { LocationDisplay } from "../../App";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
 import CardDeck from "../display-card/CardDeck";
+import csvHelper from "../display-card/helper/csv_helper";
 import * as routeData from "react-router";
 
 const card = {
@@ -24,15 +25,15 @@ const card = {
   neuralMachineScore: 0.935441,
 };
 const cards = [card, card, card];
+const visitedCards=[card];
+const visitedChoices="NEURO";
 const mockLocation = {
   pathname: "/game",
   hash: "",
   search: "",
   state: { cards: cards },
 };
-const order = [0, 1, 2];
 const sentence = 0;
-const sentences = 3;
 const score = { player: 0, robot: 0, enable: true };
 
 describe("Test CardDeck section", () => {
@@ -80,6 +81,29 @@ describe("Test CardDeck section", () => {
     expect(newGameBtn).toBeInTheDocument();
   });
 
+  test("check click new game Button routes to home page", async () => {
+    const history = createMemoryHistory();
+
+    history.push("/game");
+    render(
+      <MemoryRouter
+        cards={cards}
+        initialEntries={[
+          { pathname: "/game", search: "Start New Game", cards: { cards } },
+        ]}
+      >
+        <CardDeck cards={cards} sentences={sentence} score={score} />
+      </MemoryRouter>
+    );
+    const selectButton = screen.getAllByTestId(/selectBtn/i)[0];
+    userEvent.click(selectButton);
+    const submitBtn = screen.getByTestId(/submitBtn/i);
+    userEvent.click(submitBtn);
+    const newGameBtn = screen.getByTestId(/newGameBtn/i);
+    userEvent.click(newGameBtn);
+    expect(window.location.pathname).toBe("/");
+  });
+
   test("check save game Button renders when no sentences left and score displayed", async () => {
     const route = "/game";
 
@@ -99,5 +123,30 @@ describe("Test CardDeck section", () => {
     userEvent.click(submitBtn);
     const saveGameBtn = screen.getByTestId(/saveGameBtn/i);
     expect(saveGameBtn).toBeInTheDocument();
+  });
+
+  test("check click save game Button download game logs at end of game", async () => {
+    const route = "/game";
+
+    render(
+      <MemoryRouter initialEntries={[route]} cards={cards}>
+        <CardDeck
+          card={card}
+          cards={cards}
+          sentences={1}
+          score={score}
+          visitedCards={visitedCards}
+          visitedChoices={visitedChoices}
+        />
+      </MemoryRouter>
+    );
+    const selectButton = screen.getAllByTestId(/selectBtn/i)[0];
+    userEvent.click(selectButton);
+    const submitBtn = screen.getByTestId(/submitBtn/i);
+    userEvent.click(submitBtn);
+    const saveGameBtn = screen.getByTestId(/saveGameBtn/i);
+    const csvRecord = csvHelper(visitedCards,visitedChoices);
+    userEvent.click(saveGameBtn);
+    expect(csvRecord).not.toBe(undefined);
   });
 });
