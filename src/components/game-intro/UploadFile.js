@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Typography, Button } from "@material-ui/core";
+import { TextField, Typography, Button } from "@material-ui/core";
 
 function UploadFile(props) {
 
-    const [isDisabled, setIsDisabled] = React.useState(true)
     const [cards, setCards] = React.useState([])
+    const [sentences, setSentences] = React.useState(0);
     const { handleNext } = props;
+    const [totalCards, setTotalCards] = React.useState(0)
 
     const readFile = async (event) => {
         event.preventDefault()
@@ -28,19 +29,35 @@ function UploadFile(props) {
                 cards.push(cardDto)
             })
             if (cards.length > 0) {
-                setIsDisabled(false)
                 setCards(cards)
+                setTotalCards(cards.length)
             }
         }
         reader.readAsText(event.target.files[0])
     }
 
     return (
-        <div className="start-fileArea">
-            <Typography component={'div'} className="start-reminder">Please select the file to upload (.tsv only)</Typography>
-            <input className="fileUpload" data-testid="fileDrop" type="file" accept=".tsv" onChange={(file) => readFile(file)} />
-            <div className="start-submit-button">
-                <Button data-testid="nextButton" onClick={() => handleNext({ cards: cards })} disabled={isDisabled}>Next</Button>
+        <div>
+            <div className="start-fileArea">
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                    <Typography component={'div'} className="start-reminder">Please select the file to upload (.tsv only)</Typography>
+                    <input className="input" data-testid="fileDrop" type="file" accept=".tsv" onChange={(file) => readFile(file)} />
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between', marginTop: '2vw'}}>
+                    <Typography className="start-reminder">
+                        Select the number of sentences in the gameplay
+                    </Typography>
+                    <TextField className="input" onChange={(event) => setSentences(event.target.value)} value={sentences} type="number" disabled={totalCards <= 0}/>
+                </div>
+                <br/>
+                {sentences > totalCards &&
+                    <div style={{ color: "red" }}>too large! please do not submit more than {totalCards} sentences</div>}
+                {sentences < 0 &&
+                    <div style={{ color: "red" }}>too small! please submit at least 1 sentence</div>}
+            </div>
+            <div className="stepper-button right">
+                <Button role={'nextButton'} onClick={() => handleNext({ cards: cards, sentences: sentences })}
+                    disabled={sentences <= 0 || sentences > totalCards}>Next</Button>
             </div>
         </div>
     )
