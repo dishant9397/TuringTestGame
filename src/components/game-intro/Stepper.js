@@ -78,9 +78,10 @@ function HorizontalLinearStepper() {
                         {activeStep === START_GAME && <StartGame cards={cards} sentences={sentences}></StartGame>}
                     </div>
                     <div className="start-buttonArea">
+                        {activeStep !== UPLOAD_FILE &&
                         <div className="stepper-button left">
                             <Button data-testid="backBtn" color="inherit" onClick={handleBack} sx={{ mr: 1 }} {...styleProps}>Back</Button>
-                        </div>
+                        </div>}
                         {activeStep === GAME_INTRO && 
                         <div className="stepper-button right">
                             <Button data-testid="nextBtn" onClick={handleNext}>Next</Button>
