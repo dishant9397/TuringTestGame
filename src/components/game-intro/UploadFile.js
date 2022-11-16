@@ -50,10 +50,12 @@ function UploadFile(props) {
                     <TextField className="input" onChange={(event) => setSentences(event.target.value)} value={sentences} type="number" disabled={totalCards <= 0}/>
                 </div>
                 <br/>
-                {sentences > totalCards &&
-                    <div style={{ color: "red" }}>too large! please do not submit more than {totalCards} sentences</div>}
-                {sentences < 0 &&
-                    <div style={{ color: "red" }}>too small! please submit at least 1 sentence</div>}
+                {
+                    (sentences > totalCards || sentences < 0) &&
+                    <div style={{ color: "red" }}>
+                        The file that you uploaded contains only <span style={{fontWeight: "bold"}}>{totalCards}</span> sentences from which you are requesting {sentences} sentences which is an invalid entry.
+                    </div>
+                }
             </div>
             <div className="stepper-button right">
                 <Button role={'nextButton'} onClick={() => handleNext({ cards: cards, sentences: sentences })}
