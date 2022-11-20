@@ -3,21 +3,18 @@ import { useNavigate } from "react-router-dom"
 import { Box, Button, Step, StepLabel, Stepper, Typography } from "@material-ui/core";
 import GameIntro from "./GameIntro";
 import UploadFile from "./UploadFile";
-import Sentences from "./Sentences";
 import StartGame from "./StartGame";
 import Logo from "./resources/logo.svg";
 
 const steps = [
     'Upload File',
-    'Number of Sentences',
     'Game Intro',
     'Start Game'
 ]
 
 const UPLOAD_FILE = 0;
-const SENTENCES = 1;
-const GAME_INTRO = 2;
-const START_GAME = 3;
+const GAME_INTRO = 1;
+const START_GAME = 2;
 
 function HorizontalLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -77,23 +74,22 @@ function HorizontalLinearStepper() {
                 <React.Fragment>
                     <div className="start-content">
                         {activeStep === UPLOAD_FILE && <UploadFile handleNext={handleNext}></UploadFile>}
-                        {activeStep === SENTENCES && <Sentences handleNext={handleNext} cards={cards}></Sentences>}
                         {activeStep === GAME_INTRO && <GameIntro></GameIntro>}
                         {activeStep === START_GAME && <StartGame cards={cards} sentences={sentences}></StartGame>}
-
                     </div>
                     <div className="start-buttonArea">
-                        <Button data-testid="backBtn"
-                            color="inherit"
-                            onClick={handleBack}
-                            sx={{ mr: 1 }}
-                            {...styleProps}
-                        >
-                            Back
-                        </Button>
-                        {activeStep === GAME_INTRO && <Button
-                            data-testid="nextBtn" onClick={handleNext}>Next</Button>}
-                        {activeStep === START_GAME && <Button data-testid="startBtn" onClick={() => navigate('/game', { state: {cards: cards, sentences: sentences} })}>Start Game</Button>}
+                        {activeStep !== UPLOAD_FILE &&
+                        <div className="stepper-button left">
+                            <Button data-testid="backBtn" color="inherit" onClick={handleBack} sx={{ mr: 1 }} {...styleProps}>Back</Button>
+                        </div>}
+                        {activeStep === GAME_INTRO && 
+                        <div className="stepper-button right">
+                            <Button data-testid="nextBtn" onClick={handleNext}>Next</Button>
+                        </div>}
+                        {activeStep === START_GAME && 
+                        <div className="stepper-button right">
+                            <Button data-testid="startBtn" onClick={() => navigate('/game', { state: {cards: cards, sentences: sentences} })}>Start Game</Button>
+                        </div>}
 
                     </div>
                 </React.Fragment>
