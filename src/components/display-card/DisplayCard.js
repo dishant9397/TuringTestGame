@@ -92,14 +92,14 @@ function DisplayCard(props) {
                         <Typography gutterBottom variant="h5" component="div">
                             The original sentence:
                         </Typography>
-                        <Typography variant="body1" color="text.secondary">
+                        <Typography variant="body1">
                             {card.original}
                         </Typography>
 
                         <Typography gutterBottom variant="h6" component="div">
                             The reference sentence:
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2">
                             {card.referenceTranslation}
                         </Typography>
                     </CardContent>
