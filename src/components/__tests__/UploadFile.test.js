@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-node-access */
 /* eslint-disable testing-library/no-container */
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor,fireEvent  } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import UploadFile from '../game-intro/UploadFile';
 
@@ -8,7 +8,7 @@ describe("Test file uploader", () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });
-  afterAll(() => {
+  afterEach(() => {
     jest.resetAllMocks();
   });
 
@@ -49,6 +49,29 @@ describe("Test file uploader", () => {
       expect(nextBtn).toBeInTheDocument(),
       expect(nextBtn).toBeEnabled()
     );
+  });
+
+  test('check specify number of sentences controller renders', () => {
+    render(<UploadFile />);
+    const spinBtn = screen.getByRole('spinbutton');
+    expect(spinBtn).toBeInTheDocument();
+  });
+
+  test('check sentences controller updates value', () => {
+    const onSubmit = jest.fn();
+    render(<UploadFile handleSubmit={onSubmit} />);
+    fireEvent.change(screen.getByRole('spinbutton'), { target: { value: 80 } });
+
+    expect(screen.getByRole('spinbutton')).toHaveValue(80);
+  });
+
+  test('check next button becomes available after sentences controller updates valid value', () => {
+    const onSubmit = jest.fn();
+    render(<UploadFile handleSubmit={onSubmit} />);
+    fireEvent.change(screen.getByRole('spinbutton'), { target: { value: 80 } });
+
+    const nextBtn = screen.getByText(/next/i);
+    expect(nextBtn).not.toBeDisabled();
   });
 });
 
