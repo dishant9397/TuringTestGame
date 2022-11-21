@@ -1,6 +1,8 @@
 .background {
     pointer-events: none;
     opacity: 0.3;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
     position: fixed;
     align-content: center;
     padding-top: 10%;
@@ -27,23 +29,33 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 20vw;
+    margin-top: 2vw;
 }
 
 .start-fileArea .start-reminder {
     text-align: center;
     margin-bottom: 1vw;
-    font-family: "Times New Roman";
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.6em;
     font-weight: bold;
 }
 
+.input {
+    margin-top: 1vw;
+    width: 25vw;
+}
+
 .start-intro {
-    font-family: Arial;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.start-intro .MuiTypography-h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 
 .start-intro .start-introContent {
-    font-family: Arial;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     margin-top: 1vw;
 }
@@ -59,10 +71,21 @@
     width: 30vw;
 }
 
-.start-submit-button {
-    position: absolute;
-    margin-left: 85vw;
-    margin-top: 33vh;
+.stepper-button {
+    position: fixed;
+    bottom: 5vh;
+    background: lightblue;
+    border: 1px solid blue;
+    border-radius: 15px;
+    color: black;
+}
+
+.left {
+    left: 5vw
+}
+
+.right {
+    right: 5vw;
 }
 
 .start-game {
@@ -196,7 +219,16 @@
 .next-button-container .end-game-container {
     display: flex;
     justify-content: space-between;
-    gap: 37vw;
+    gap: 60vw;
+}
+
+.next-button-container Button {
+    color: black;
+}
+
+.end-game-container Button {
+    color: black;
+    text-align: center;
 }
 
 .score-typography {
