@@ -25,7 +25,6 @@ function CardDeck() {
 
     React.useEffect(() => {
         changeCard()
-        console.log(alignOptions)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
