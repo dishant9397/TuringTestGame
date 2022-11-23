@@ -56,31 +56,33 @@ When game ends, allow game admin to save the player log for further analysis.
 ## Future Work
 *Details to be added later*
 
-## Available Scripts to run the game locally
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Available options to run the game locally
 
-### `npm start`
+* Provide two options for local run within offline environment 
 
-Runs the app in the development mode.\
+* One option is to pull docker image locally and run within container 
+
+* The other is to clone whole repository locally, use NPM to install packages and dependencies then run locally
+
+### NPM:
+
+* Clone the repository to local
+* within command line console, run `npm install --legacy-peer-deps` to install necessary packages and solve depencency issue
+* run `npm start` to start the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+* run `npm test` to check the test suits.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Docker: 
+* Already built the application locally and push the created image to remote docker hub.
+* First pull the docker image to local then run the application within container, mapped to localhost
+* Instructions to run application locally with docker:
+* [Install Docker](https://docs.docker.com/desktop/)
+* pull [remote docker image](https://hub.docker.com/r/alexyoungz/turingtestgame/tags) with following command:
+* `docker pull alexyoungz/turingtestgame:turingtestgame`
+* start docker image within container with following command(mapped to port 3000 by default):  
+* `docker run -p 3000:3000 -it turingtestgame`
 
 ## Application Links
 * Production: https://turing-test-game.netlify.app/
