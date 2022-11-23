@@ -67,22 +67,23 @@ When game ends, allow game admin to save the player log for further analysis.
 ### NPM:
 
 * Clone the repository to local
-* within command line console, run `npm install --legacy-peer-deps` to install necessary packages and solve depencency issue
-* run `npm start` to start the app in the development mode.\
+* Within command line console, run `npm install --legacy-peer-deps` to install necessary packages and solve depencency issue
+* Run `npm start` to start the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-* run `npm test` to check the test suits.
+* Run `npm test` to check the test suits.
 
 ### Docker: 
 * Already built the application locally and push the created image to remote docker hub.
 * First pull the docker image to local then run the application within container, mapped to localhost
 * Instructions to run application locally with docker:
 * [Install Docker](https://docs.docker.com/desktop/)
-* pull [remote docker image](https://hub.docker.com/r/alexyoungz/turingtestgame/tags) with following command:
+* Pull [remote docker image](https://hub.docker.com/r/alexyoungz/turingtestgame/tags) with following command:
 * `docker pull alexyoungz/turingtestgame:turingtestgame`
-* start docker image within container with following command(mapped to port 3000 by default):  
+* Start docker image within container with following command(mapped to port 3000 by default):  
 * `docker run -p 3000:3000 -it turingtestgame`
+* For further update on docker image, could refer to this [guide](https://code.visualstudio.com/docs/containers/quickstart-node).
 
 ## Application Links
 * Production: https://turing-test-game.netlify.app/
