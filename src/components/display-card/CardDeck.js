@@ -16,6 +16,7 @@ function CardDeck() {
     const [currentCard, setCurrentCard] = React.useState([])
     const [cardLength, setCardLength] = React.useState(cards?.length)
     const [sentences, setSentences] = React.useState(location.state.sentences)
+    const [alignOptions, setAlignOptions] = React.useState(location.state.alignOptions)
     const [choice, setChoice] = React.useState("");
     const [score, setScore] = React.useState({player: 0, robot: 0, enable: false})
     const [order, setOrder] = React.useState([0, 1, 2])
@@ -24,6 +25,7 @@ function CardDeck() {
 
     React.useEffect(() => {
         changeCard()
+        console.log(alignOptions)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -64,6 +66,7 @@ function CardDeck() {
         <div>
             <DisplayCard
                 card={currentCard}
+                alignOptions={alignOptions}
                 choice={choice} setChoice={setChoice}
                 score={score} setScore={setScore}
                 order={order}

@@ -5,8 +5,16 @@ function Translation(props) {
     
     const details = props?.details
     const {choice, setChoice} = props?.options;
-    const {score} = props?.options
+    const {score, align} = props?.options
     const [className, setClassName] = React.useState("display-cardButton")
+
+    const getAlignment = () => {
+        return align ? 'flex-end' : 'flex-start';
+    }
+
+    const getTextAlignment = () => {
+        return align ? 'right' : 'left';
+    }
 
     const handleClick = () => {
         if (!score.enable) {
@@ -28,7 +36,7 @@ function Translation(props) {
     return (
         <div>
             <div style={{ display:'flex' }}>
-                <Button style={{ textTransform: 'none', justifyContent:'flex-start' }} className={className} data-testid="selectBtn" onClick={handleClick}>
+                <Button style={{ textTransform: 'none', justifyContent: `${getAlignment()}`, textAlign: `${getTextAlignment()}` }} className={className} data-testid="selectBtn" onClick={handleClick}>
                     {details.translation}
                 </Button>
                 {score.enable && <Typography data-testid="score" className="score-class">{details.score}</Typography>}

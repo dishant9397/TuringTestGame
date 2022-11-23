@@ -16,6 +16,7 @@ function DisplayCard(props) {
     const card = props?.card
     const order = props?.order
     const {
+        alignOptions,
         choice, setChoice,
         score, setScore,
         setVisitedRecords} = props;
@@ -28,7 +29,8 @@ function DisplayCard(props) {
     const options = {
         score: score,
         choice: choice,
-        setChoice: setChoice
+        setChoice: setChoice,
+        align: alignOptions.reference
     }
 
     const translations = [
@@ -92,14 +94,13 @@ function DisplayCard(props) {
                         <Typography gutterBottom variant="h5" component="div">
                             The original sentence:
                         </Typography>
-                        <Typography variant="body1">
+                        <Typography variant="body1" align={alignOptions.original ? "right" : "left"}>
                             {card.original}
                         </Typography>
-
                         <Typography gutterBottom variant="h6" component="div">
                             The reference sentence:
                         </Typography>
-                        <Typography variant="body2">
+                        <Typography variant="body2" align={alignOptions.reference ? "right" : "left"}>
                             {card.referenceTranslation}
                         </Typography>
                     </CardContent>

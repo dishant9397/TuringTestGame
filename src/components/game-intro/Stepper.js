@@ -20,6 +20,7 @@ function HorizontalLinearStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
     const [cards, setCards] = React.useState([])
     const [sentences, setSentences] = React.useState(0)
+    const [alignOptions, setAlignOptions] = React.useState({});
     const navigate = useNavigate();
 
     const styleProps = activeStep === 0 && {
@@ -33,6 +34,9 @@ function HorizontalLinearStepper() {
         }
         if (props.sentences !== undefined) {
             setSentences(props.sentences)
+        }
+        if (props.alignOptions !== undefined) {
+            setAlignOptions(props.alignOptions)
         }
     }
 
@@ -88,7 +92,7 @@ function HorizontalLinearStepper() {
                         </div>}
                         {activeStep === START_GAME && 
                         <div className="stepper-button right">
-                            <Button data-testid="startBtn" onClick={() => navigate('/game', { state: {cards: cards, sentences: sentences} })}>Start Game</Button>
+                            <Button data-testid="startBtn" onClick={() => navigate('/game', { state: {cards: cards, sentences: sentences, alignOptions: alignOptions} })}>Start Game</Button>
                         </div>}
 
                     </div>
