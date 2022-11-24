@@ -75,15 +75,13 @@ You may also see any lint errors in the console.
 * Run `npm test` to check the test suits.
 
 ### Docker: 
-* Already built the application locally and push the created image to remote docker hub.
-* First pull the docker image to local then run the application within container, mapped to localhost
 * Instructions to run application locally with docker:
 * [Install Docker](https://docs.docker.com/desktop/)
-* Pull [remote docker image](https://hub.docker.com/r/alexyoungz/turingtestgame/tags) with following command:
-* `docker pull alexyoungz/turingtestgame:turingtestgame`
+* Build application with following command
+* `docker build -t turingtestgame .`
 * Start docker image within container with following command(mapped to port 3000 by default):  
 * `docker run -p 3000:3000 -it turingtestgame`
-* For further update on docker image, could refer to this [guide](https://code.visualstudio.com/docs/containers/quickstart-node).
+* For further details on docker image, could refer to this [guide](https://code.visualstudio.com/docs/containers/quickstart-node).
 
 ## Application Links
 * Production: https://turing-test-game.netlify.app/
