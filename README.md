@@ -56,31 +56,32 @@ When game ends, allow game admin to save the player log for further analysis.
 ## Future Work
 *Details to be added later*
 
-## Available Scripts to run the game locally
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Available options to run the game locally
 
-### `npm start`
+* Provide two options for local run within offline environment 
 
-Runs the app in the development mode.\
+* One option is to pull docker image locally and run within container 
+
+* The other is to clone whole repository locally, use NPM to install packages and dependencies then run locally
+
+### NPM:
+
+* Clone the repository to local
+* Within command line console, run `npm install --legacy-peer-deps` to install necessary packages and solve depencency issue
+* Run `npm start` to start the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+* Run `npm test` to check the test suits.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Docker: 
+* Instructions to run application locally with docker:
+* [Install Docker](https://docs.docker.com/desktop/)
+* Build application with following command
+* `docker build -t turingtestgame .`
+* Start docker image within container with following command(mapped to port 3000 by default):  
+* `docker run -p 3000:3000 -it turingtestgame`
+* For further details on docker image, could refer to this [guide](https://code.visualstudio.com/docs/containers/quickstart-node).
 
 ## Application Links
 * Production: https://turing-test-game.netlify.app/
