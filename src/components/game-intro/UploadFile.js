@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { TextField, Typography, Button } from "@material-ui/core";
+import { TextField, Typography, Button, Checkbox } from "@material-ui/core";
 
 function UploadFile(props) {
 
     const [cards, setCards] = React.useState([])
     const [sentences, setSentences] = React.useState(0);
+    const [isOriginalChecked, setIsOriginalChecked] = React.useState(false)
+    const [isReferenceChecked, setIsReferenceChecked] = React.useState(false)
     const { handleNext } = props;
     const [totalCards, setTotalCards] = React.useState(0)
 
@@ -39,11 +41,23 @@ function UploadFile(props) {
     return (
         <div>
             <div className="start-fileArea">
-                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                <div className="row">
                     <Typography component={'div'} className="start-reminder">Please select the file to upload (.tsv only)</Typography>
                     <input className="input" data-testid="fileDrop" type="file" accept=".tsv" onChange={(file) => readFile(file)} />
                 </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', marginTop: '2vw'}}>
+                <div className="row">
+                    <Typography className="start-reminder">
+                        Should the original translation be right aligned?
+                    </Typography>
+                    <Checkbox checked={isOriginalChecked} onChange={() => setIsOriginalChecked(!isOriginalChecked)}/>
+                </div>
+                <div className="row">
+                    <Typography className="start-reminder">
+                        Should the reference translation be right aligned?
+                    </Typography>
+                    <Checkbox checked={isReferenceChecked} onChange={() => setIsReferenceChecked(!isReferenceChecked)}/>
+                </div>
+                <div className="row">
                     <Typography className="start-reminder">
                         Select the number of sentences in the gameplay
                     </Typography>
@@ -58,8 +72,13 @@ function UploadFile(props) {
                 }
             </div>
             <div className="stepper-button right">
-                <Button role={'nextButton'} onClick={() => handleNext({ cards: cards, sentences: sentences })}
-                    disabled={sentences <= 0 || sentences > totalCards}>Next</Button>
+                <Button role={'nextButton'} onClick={() => handleNext({ 
+                    cards: cards, sentences: sentences,
+                    alignOptions: {
+                        original: isOriginalChecked,
+                        reference: isReferenceChecked
+                    }
+                    })} disabled={sentences <= 0 || sentences > totalCards}>Next</Button>
             </div>
         </div>
     )
