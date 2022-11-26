@@ -12,7 +12,6 @@
   </p>
 </div>
 
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -20,6 +19,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#project-description">Project Description</a></li>
     <li><a href="#project-roadmap">Project Roadmap</a></li>
+    <li><a href="#user-flowchart">User Flowchart</a></li>
     <li>
       <a href="#how-to-run">How to run?</a>
       <ul>
@@ -37,8 +37,6 @@
 ## About 
 This is the Turing Test Game Repository by the team **"The Brainiacs"** that will allow users to play games while guessing the correct translation.
 
-
-
 ## Project Description
 
 The project is an interactive Turing test game for player and game admin. The target players of the game are visitors in outreach events. A set of sentences, including one in the original language and several translations of different quality, is shown to the player. The player is challenged to identify the human translation from the set. All the Machine Traslation is from the National Research Council of Canada’s (NRC) Multilingual Text Processing team.
@@ -48,6 +46,10 @@ The project is an interactive Turing test game for player and game admin. The ta
 * Jira project to track and document user stories/features and sprints [link](https://siyangzhang.atlassian.net/jira/software/projects/TTG/boards/2).
 * Bi-weekly team meeting with Daniel on every Tuesday, 4pm
 * Bi-weekly team meeting with Jackie on every Monday, 11:30am, also keeping updated with Slack.
+
+## User Flowchart
+
+* You can check the user flowchart here: https://app.creately.com/d/7o2qLnlfo6s/view
 
 ## How to run
 
