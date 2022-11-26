@@ -49,7 +49,7 @@ The project is an interactive Turing test game for player and game admin. The ta
 
 ## User Flowchart
 
-* You can check the user flowchart here: https://app.creately.com/d/7o2qLnlfo6s/view
+* You can check the user flowchart here: https://www.canva.com/design/DAFTFqsQKds/8sIHugDhbJEfhaqG2wr51Q/view?utm_content=DAFTFqsQKds&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 ## How to run
 
