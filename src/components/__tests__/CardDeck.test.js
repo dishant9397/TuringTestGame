@@ -1,13 +1,13 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import {MemoryRouter,BrowserRouter} from "react-router-dom";
 import { LocationDisplay } from "../../App";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
 import CardDeck from "../display-card/CardDeck";
 import csvHelper from "../display-card/helper/csv_helper";
-import * as routeData from "react-router";
+import { createBrowserHistory } from "history";
 
 const card = {
   original:
@@ -35,10 +35,12 @@ const mockLocation = {
 };
 const sentence = 0;
 const score = { player: 0, robot: 0, enable: true };
+const alignOptions = {original:true, reference:true};
 
 describe("Test CardDeck section", () => {
-  beforeEach(() => {
-    jest.spyOn(routeData, "useLocation").mockReturnValue(mockLocation);
+  beforeEach(async () => {
+    const history = createBrowserHistory();
+    history.push("/game", card);
   });
   afterEach(() => {
     jest.restoreAllMocks();
@@ -129,7 +131,7 @@ describe("Test CardDeck section", () => {
     const route = "/game";
 
     render(
-      <MemoryRouter initialEntries={[route]} cards={cards}>
+      <BrowserRouter history={history}>
         <CardDeck
           card={card}
           cards={cards}
@@ -137,8 +139,9 @@ describe("Test CardDeck section", () => {
           score={score}
           visitedCards={visitedCards}
           visitedChoices={visitedChoices}
+          alignOptions={alignOptions}
         />
-      </MemoryRouter>
+      </BrowserRouter>
     );
     const selectButton = screen.getAllByTestId(/selectBtn/i)[0];
     userEvent.click(selectButton);
