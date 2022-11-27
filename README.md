@@ -13,26 +13,25 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#about">About</a></li>
-    <li><a href="#project-description">Project Description</a></li>
-    <li><a href="#project-roadmap">Project Roadmap</a></li>
-    <li><a href="#user-flowchart">User Flowchart</a></li>
-    <li>
-      <a href="#how-to-run">How to run?</a>
-      <ul>
-        <li><a href="#locally">Locally</a></li>
-        <li><a href="#on-a-container">On a container</a></li>
-      </ul>
-    </li>
-  <li><a href="#deployment-links">Deployment Links</a></li>    
-  <li><a href="#future-work">Future Work</a></li>
-    <li><a href="#contributors">Contributors</a></li>
-    <li><a href="#documents">Documents</a></li>
-  </ol>
-</details>
+
+<summary>Table of Contents</summary>
+<ol>
+<li><a href="#about">About</a></li>
+<li><a href="#project-description">Project Description</a></li>
+<li><a href="#project-roadmap">Project Roadmap</a></li>
+<li><a href="#user-flowchart">User Flowchart</a></li>
+<li>
+  <a href="#how-to-run">How to run?</a>
+  <ul>
+    <li><a href="#locally">Locally</a></li>
+    <li><a href="#on-a-container">On a container</a></li>
+  </ul>
+</li>
+<li><a href="#deployment-links">Deployment Links</a></li>    
+<li><a href="#future-work">Future Work</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#documents">Documents</a></li>
+</ol>
 
 ## About 
 This is the Turing Test Game Repository by the team **"The Brainiacs"** that will allow users to play games while guessing the correct translation.
