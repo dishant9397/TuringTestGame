@@ -1,96 +1,116 @@
-# Turing Test Game
-This is the Turing Test Game Repository by the team **"The Brainiacs"** that will allow users to play games.
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/dishant9397/TuringTestGame?display_name=tag) ![GitHub repo size](https://img.shields.io/github/repo-size/dishant9397/TuringTestGame)
+![GitHub contributors](https://img.shields.io/github/contributors/dishant9397/TuringTestGame) ![GitHub issues](https://img.shields.io/github/issues-raw/dishant9397/TuringTestGame) ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/dishant9397/TuringTestGame) ![Netlify](https://img.shields.io/netlify/6f8bc681-652d-4fbc-9be9-513a8bd9ca80)     
+
+<br />
+<div align="center">
+    <img src="https://raw.githubusercontent.com/The-Brainiacs-FSE/TuringTestGame/master/src/components/game-intro/resources/logo.svg" alt="Logo" height="300">
+  <h1 align="center">Turing Test Game</h1>
+  <p align="center">
+    <a href="https://github.com/The-Brainiacs-FSE/TuringTestGame/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/The-Brainiacs-FSE/TuringTestGame/issues">Request a Feature</a>
+  </p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+
+<summary>Table of Contents</summary>
+<ol>
+<li><a href="#about">About</a></li>
+<li><a href="#project-description">Project Description</a></li>
+<li><a href="#project-roadmap">Project Roadmap</a></li>
+<li><a href="#user-flowchart">User Flowchart</a></li>
+<li>
+  <a href="#how-to-run">How to run?</a>
+  <ul>
+    <li><a href="#locally">Locally</a></li>
+    <li><a href="#on-a-container">On a container</a></li>
+  </ul>
+</li>
+<li><a href="#deployment-links">Deployment Links</a></li>    
+<li><a href="#future-work">Future Work</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#documents">Documents</a></li>
+</ol>
+
+## About 
+This is the Turing Test Game Repository by the team **"The Brainiacs"** that will allow users to play games while guessing the correct translation.
 
 ## Project Description
+
 The project is an interactive Turing test game for player and game admin. The target players of the game are visitors in outreach events. A set of sentences, including one in the original language and several translations of different quality, is shown to the player. The player is challenged to identify the human translation from the set. All the Machine Traslation is from the National Research Council of Canada’s (NRC) Multilingual Text Processing team.
 
 ## Project Roadmap
 
 * Jira project to track and document user stories/features and sprints [link](https://siyangzhang.atlassian.net/jira/software/projects/TTG/boards/2).
 * Bi-weekly team meeting with Daniel on every Tuesday, 4pm
-* Bi-weekly team meeting with Jackie on every Monday, 11:30am, also keep updated with Slack.
+* Bi-weekly team meeting with Jackie on every Monday, 11:30am, also keeping updated with Slack.
 
-## Milestones
-Here are the milestones that we would be reaching:
+## User Flowchart
 
-### Milestone 1: Admin Panel Development
-A game admin panel is used by NRC staff to start the game by choosing the game parameters, such as the set of sentence tuples, number of tuples drawn from the set in each game, etc.
+* You can check the user flowchart here: https://www.canva.com/design/DAFTFqsQKds/8sIHugDhbJEfhaqG2wr51Q/view?utm_content=DAFTFqsQKds&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-**Task:**
-1. Implement UI to start the game, allow admin to draw sentence tuple from sentence sets. 
-2. Next button to next page.
+## How to run
 
-### Milestone 2: Game Development
-**Game flow in this milestone:**
-1. Display a sentence tuple: the original sentence, human reference translation and three candidate translations.
-2. Allow the player to select potential robot translations and cancel selection. Allow the player to confirm decision.
-3. Display robot judge (YiSi)’s decision. Move on to the next step when player is ready. (e.g. pressing the next button; but open for other implementations)
-4. Display true identity of translators (human/SMT/NMT). Move on to the next step when player is ready. (e.g. pressing the next button; but open for other implementations)
-5. Display player vs. robot judge scores. Move on to the next step when player is ready. (e.g. pressing the next button; but open for other implementations)
-6. Go to step 1 with a new sentence tuple. Game ends when the loaded sets of sentences are exhausted or the game admin chooses to end it.
+### Locally:
+* Clone the repository to local by running the command:
+```
+git clone https://github.com/The-Brainiacs-FSE/TuringTestGame.git
+```
 
-**Task:**
-1. Display sentence tuple along with user selection section
-2. Display robot judge decision
-3. Display true identities
-4. Display comparison results, allowing start a new game or log the results
+* Within command line console, run install command to install necessary packages and solve depencency issue
+```
+npm install --legacy-peer-deps
+```
 
-### Milestone 3: Data Log and Output
-Log user decisions in the game play.(question)
-When game ends, allow game admin to save the player log for further analysis.
+* Run test command to check the test suits
+```
+npm test
+```
 
-## User Experience Flowchart   
-* [Lucid chart link](https://lucid.app/lucidchart/558ca1b9-91ad-4aba-b89b-14e96a641019/edit?viewport_loc=61%2C-156%2C1935%2C1555%2C0_0&invitationId=inv_673d2537-0e21-4ddd-bd03-db72b98c2599#).
+* Run run below command to start the app in the development mode
+```
+npm start
+```
 
-## User Stories
+**Note:** Redirect to [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will automatically reload when you make the changes.
 
-### Game Admin
-* Starts the game by specifying parameters.
-* Collects player logs when game is complete for further analysis.
+### On a container:
+*  Visit [Install Docker](https://docs.docker.com/desktop/) and install docker if you haven't already.
 
-### Player
-* Choose on whether one translation is generated by robot or not, mark/unmark the decision and click next button to check the robot’s idea.
-* View actual results, compare player decision with the robot’s.
-* Choose to start a new round of game.
+* Build application with following command
+```
+docker build -t turingtestgame .
+```
 
-## Future Work
-*Details to be added later*
+* Start docker image within container with following command (mapped to port 3000 by default):
+```
+docker run -p 3000:3000 -it turingtestgame
+```
 
-## Available Scripts to run the game locally
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Note:** Redirect to [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will not automatically reload when you make the changes because the application is deployed within docker and you might have to run above commands again to see the changes in effect. For further details on docker image, could refer to this guide [here](https://code.visualstudio.com/docs/containers/quickstart-node).
 
-### `npm start`
+## Deployment Links
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Application Links
 * Production: https://turing-test-game.netlify.app/
 * Staging: https://turing-test-game-stg.netlify.app/
 
+**Note:** Whenever a PR is raised the deploy link will appear in the PR directly and through that you can view the changes specific to that PR.
+
+## Future Work
+
+* Add Monitoring to the website 
+* Deploy on a real server/cloud like AWS/Azure/GCP
+* Improve documentation so that the new person joining the team can quickly take up.
+* Need to solve the peer dependency issues while installing the packages.
+
 ## Contributors
-* Siyang Zhang
-* Dishant Patel
-* Yiran Xu
+
+* [Siyang Zhang](https://github.com/AlexYoungZ)
+* [Dishant Patel](https://github.com/dishant9397)
+* [Yiran Xu](https://github.com/EranXu)
 
 ## Documents
-* [Project Requirements](docs/Project%20Requirements.docx)
-* [Presentation](docs/Presentation.pptx)
+
+*  [Project Requirements](docs/Project%20Requirements.docx)
+*  [Presentation](docs/Presentation.pptx)
