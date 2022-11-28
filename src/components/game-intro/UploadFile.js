@@ -49,13 +49,13 @@ function UploadFile(props) {
                     <Typography className="start-reminder">
                         Should the original translation be right aligned?
                     </Typography>
-                    <Checkbox checked={isOriginalChecked} onChange={() => setIsOriginalChecked(!isOriginalChecked)}/>
+                    <Checkbox checked={isOriginalChecked} onChange={() => setIsOriginalChecked(!isOriginalChecked)} data-testid="originalAlignCheckBox"/>
                 </div>
                 <div className="row">
                     <Typography className="start-reminder">
                         Should the reference translation be right aligned?
                     </Typography>
-                    <Checkbox checked={isReferenceChecked} onChange={() => setIsReferenceChecked(!isReferenceChecked)}/>
+                    <Checkbox checked={isReferenceChecked} onChange={() => setIsReferenceChecked(!isReferenceChecked)} data-testid="referenceAlignCheckBox"/>
                 </div>
                 <div className="row">
                     <Typography className="start-reminder">

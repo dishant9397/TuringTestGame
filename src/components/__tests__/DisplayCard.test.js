@@ -22,7 +22,8 @@ describe("Test Display Card section", () => {
     neuralMachineScore: 0.935441,
   };
   const order=[0, 1, 2];
-  let score={player: 0, robot: 0, enable: true};
+  const score={player: 0, robot: 0, enable: true};
+  let alignOptions = {original:true, reference:true};
 
   beforeEach(async () => {
     const history = createBrowserHistory();
@@ -32,7 +33,7 @@ describe("Test Display Card section", () => {
   test("check caption renders", () => {
     render(
       <BrowserRouter history={history}>
-        <DisplayCard card={card} order={order} score={score}/>
+        <DisplayCard card={card} order={order} score={score} alignOptions={alignOptions}/>
       </BrowserRouter>
     );
     const caption = screen.getByText(
@@ -44,7 +45,7 @@ describe("Test Display Card section", () => {
   test("check original and reference sentences renders", () => {
     render(
       <BrowserRouter history={history}>
-        <DisplayCard card={card} order={order} score={score}/>
+        <DisplayCard card={card} order={order} score={score} alignOptions={alignOptions}/>
       </BrowserRouter>
     );
     const question = screen.getByTestId(/questionZone/i);
@@ -54,7 +55,7 @@ describe("Test Display Card section", () => {
   test("check translations render", () => {
     render(
       <BrowserRouter history={history}>
-        <DisplayCard card={card} order={order} score={score}/>
+        <DisplayCard card={card} order={order} score={score} alignOptions={alignOptions}/>
       </BrowserRouter>
     );
     const firstTranslation = screen.getByRole('button', {
@@ -76,7 +77,7 @@ describe("Test Display Card section", () => {
   test("check submit Button renders", () => {
     render(
       <BrowserRouter>
-        <DisplayCard card={card} order={order} score={score}/>
+        <DisplayCard card={card} order={order} score={score} alignOptions={alignOptions}/>
       </BrowserRouter>
     );
     const submitBtn = screen.getByTestId(/submitBtn/i);
@@ -86,7 +87,7 @@ describe("Test Display Card section", () => {
   test("check click submit Button then playerScore renders", () => {
     render(
       <BrowserRouter >
-        <DisplayCard card={card} order={order} score={score}/>
+        <DisplayCard card={card} order={order} score={score} alignOptions={alignOptions}/>
       </BrowserRouter>
     );
     const submitBtn = screen.getByTestId(/submitBtn/i);
@@ -98,7 +99,7 @@ describe("Test Display Card section", () => {
   test("check click submit Button then robotScore renders", () => {
     render(
       <BrowserRouter >
-        <DisplayCard card={card} order={order} score={score}/>
+        <DisplayCard card={card} order={order} score={score} alignOptions={alignOptions}/>
       </BrowserRouter>
     );
     const submitBtn = screen.getByTestId(/submitBtn/i);

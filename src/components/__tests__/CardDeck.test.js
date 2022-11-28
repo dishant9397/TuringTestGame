@@ -4,7 +4,6 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { LocationDisplay } from "../../App";
 import userEvent from "@testing-library/user-event";
-import { createMemoryHistory } from "history";
 import CardDeck from "../display-card/CardDeck";
 import csvHelper from "../display-card/helper/csv_helper";
 import * as routeData from "react-router";
@@ -25,19 +24,21 @@ const card = {
   neuralMachineScore: 0.935441,
 };
 const cards = [card, card, card];
-const visitedCards=[card];
-const visitedChoices="NEURO";
+const visitedCards = [card];
+const visitedChoices = "NEURO";
+const sentence = 0;
+const score = { player: 0, robot: 0, enable: true };
+const alignOptions = { original: true, reference: true };
 const mockLocation = {
   pathname: "/game",
   hash: "",
   search: "",
-  state: { cards: cards },
+  state: { cards: cards, alignOptions: alignOptions },
 };
-const sentence = 0;
-const score = { player: 0, robot: 0, enable: true };
+const route = "/game";
 
 describe("Test CardDeck section", () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.spyOn(routeData, "useLocation").mockReturnValue(mockLocation);
   });
   afterEach(() => {
@@ -48,8 +49,6 @@ describe("Test CardDeck section", () => {
   });
 
   test("routes to Card Deck components", () => {
-    const route = "/game";
-
     render(
       <MemoryRouter initialEntries={[route]}>
         <LocationDisplay />
@@ -60,17 +59,15 @@ describe("Test CardDeck section", () => {
   });
 
   test("check new game Button renders when no sentences left and score displayed", async () => {
-    const history = createMemoryHistory();
-
-    history.push("/game");
+    const route = "/game";
     render(
-      <MemoryRouter
-        cards={cards}
-        initialEntries={[
-          { pathname: "/game", search: "Start New Game", cards: { cards } },
-        ]}
-      >
-        <CardDeck cards={cards} sentences={sentence} score={score} />
+      <MemoryRouter initialEntries={[route]}>
+        <CardDeck
+          cards={cards}
+          sentences={sentence}
+          score={score}
+          alignOptions={alignOptions}
+        />
       </MemoryRouter>
     );
     const selectButton = screen.getAllByTestId(/selectBtn/i)[0];
@@ -82,17 +79,14 @@ describe("Test CardDeck section", () => {
   });
 
   test("check click new game Button routes to home page", async () => {
-    const history = createMemoryHistory();
-
-    history.push("/game");
     render(
-      <MemoryRouter
-        cards={cards}
-        initialEntries={[
-          { pathname: "/game", search: "Start New Game", cards: { cards } },
-        ]}
-      >
-        <CardDeck cards={cards} sentences={sentence} score={score} />
+      <MemoryRouter initialEntries={[route]}>
+        <CardDeck
+          cards={cards}
+          sentences={sentence}
+          score={score}
+          alignOptions={alignOptions}
+        />
       </MemoryRouter>
     );
     const selectButton = screen.getAllByTestId(/selectBtn/i)[0];
@@ -105,15 +99,14 @@ describe("Test CardDeck section", () => {
   });
 
   test("check save game Button renders when no sentences left and score displayed", async () => {
-    const route = "/game";
-
     render(
-      <MemoryRouter initialEntries={[route]} cards={cards}>
+      <MemoryRouter initialEntries={[route]}>
         <CardDeck
           card={card}
           cards={cards}
           sentences={sentence}
           score={score}
+          alignOptions={alignOptions}
         />
       </MemoryRouter>
     );
@@ -126,10 +119,8 @@ describe("Test CardDeck section", () => {
   });
 
   test("check click save game Button download game logs at end of game", async () => {
-    const route = "/game";
-
     render(
-      <MemoryRouter initialEntries={[route]} cards={cards}>
+      <MemoryRouter initialEntries={[route]}>
         <CardDeck
           card={card}
           cards={cards}
@@ -137,6 +128,7 @@ describe("Test CardDeck section", () => {
           score={score}
           visitedCards={visitedCards}
           visitedChoices={visitedChoices}
+          alignOptions={alignOptions}
         />
       </MemoryRouter>
     );
@@ -145,7 +137,7 @@ describe("Test CardDeck section", () => {
     const submitBtn = screen.getByTestId(/submitBtn/i);
     userEvent.click(submitBtn);
     const saveGameBtn = screen.getByTestId(/saveGameBtn/i);
-    const csvRecord = csvHelper(visitedCards,visitedChoices);
+    const csvRecord = csvHelper(visitedCards, visitedChoices);
     userEvent.click(saveGameBtn);
     expect(csvRecord).not.toBe(undefined);
   });
