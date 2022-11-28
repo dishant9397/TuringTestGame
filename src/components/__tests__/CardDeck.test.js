@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter} from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { LocationDisplay } from "../../App";
 import userEvent from "@testing-library/user-event";
 import CardDeck from "../display-card/CardDeck";
