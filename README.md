@@ -27,6 +27,9 @@
     <li><a href="#on-a-container">On a container</a></li>
   </ul>
 </li>
+<li>
+  <a href="#how-to-upload-custom-font-style">How to upload custom font style?</a>
+</li>
 <li><a href="#deployment-links">Deployment Links</a></li>    
 <li><a href="#future-work">Future Work</a></li>
 <li><a href="#contributors">Contributors</a></li>
@@ -89,6 +92,12 @@ docker run -p 3000:3000 -it turingtestgame
 ```
 
 **Note:** Redirect to [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will not automatically reload when you make the changes because the application is deployed within docker and you might have to run above commands again to see the changes in effect. For further details on docker image, could refer to this guide [here](https://code.visualstudio.com/docs/containers/quickstart-node).
+
+
+## How to upload custom font style
+* Select [Noto Sans Canadian Aboriginal](https://fonts.google.com/noto/specimen/Noto+Sans+Canadian+Aboriginal) font style
+* Update the `<style>` import inside `index.js` file
+ 
 
 ## Deployment Links
 
