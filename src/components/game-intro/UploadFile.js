@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { TextField, Typography, Button, Checkbox } from "@material-ui/core";
+import FontPicker from 'font-picker-react';
 
 function UploadFile(props) {
 
+    const API_KEY = 'AIzaSyCtEH8HVvABGTM3IrNpEXm5NpfVOIvkTd8'
+    const [fontFamily, setFontFamily] = React.useState('Montserrat')
     const [cards, setCards] = React.useState([])
     const [sentences, setSentences] = React.useState(0);
     const [isOriginalChecked, setIsOriginalChecked] = React.useState(false)
@@ -42,23 +45,29 @@ function UploadFile(props) {
         <div>
             <div className="start-fileArea">
                 <div className="row">
-                    <Typography component={'div'} className="start-reminder">Please select the file to upload (.tsv only)</Typography>
+                    <Typography component={'div'} className="start-reminder apply-font">Please select the font you want to apply</Typography>
+                    <FontPicker apiKey={API_KEY}
+                        activeFontFamily={fontFamily}
+                        onChange={(font) => setFontFamily(font.family)}/>
+                </div>
+                <div className="row">
+                    <Typography component={'div'} className="start-reminder apply-font">Please select the file to upload (.tsv only)</Typography>
                     <input className="input" data-testid="fileDrop" type="file" accept=".tsv" onChange={(file) => readFile(file)} />
                 </div>
                 <div className="row">
-                    <Typography className="start-reminder">
+                    <Typography className="start-reminder apply-font">
                         Should the original translation be right aligned?
                     </Typography>
                     <Checkbox checked={isOriginalChecked} onChange={() => setIsOriginalChecked(!isOriginalChecked)} data-testid="originalAlignCheckBox"/>
                 </div>
                 <div className="row">
-                    <Typography className="start-reminder">
+                    <Typography className="start-reminder apply-font">
                         Should the reference translation be right aligned?
                     </Typography>
                     <Checkbox checked={isReferenceChecked} onChange={() => setIsReferenceChecked(!isReferenceChecked)} data-testid="referenceAlignCheckBox"/>
                 </div>
                 <div className="row">
-                    <Typography className="start-reminder">
+                    <Typography className="start-reminder apply-font">
                         Select the number of sentences in the gameplay
                     </Typography>
                     <TextField className="input" onChange={(event) => setSentences(event.target.value)} value={sentences} type="number" disabled={totalCards <= 0}/>
@@ -72,7 +81,7 @@ function UploadFile(props) {
                 }
             </div>
             <div className="stepper-button right">
-                <Button role={'nextButton'} onClick={() => handleNext({ 
+                <Button className="apply-font" role={'nextButton'} onClick={() => handleNext({ 
                     cards: cards, sentences: sentences,
                     alignOptions: {
                         original: isOriginalChecked,
