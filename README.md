@@ -64,42 +64,31 @@ The project is an interactive Turing test game for player and game admin. The ta
 ```
 git clone https://github.com/The-Brainiacs-FSE/TuringTestGame.git
 ```
-
 * Within command line console, run install command to install necessary packages and solve depencency issue
 ```
 npm install --legacy-peer-deps
 ```
-
 * Run test command to check the test suits
 ```
 npm test
 ```
-
 * Run run below command to start the app in the development mode
 ```
 npm start
 ```
-
 **Note:** Redirect to [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will automatically reload when you make the changes.
 
 ### On a container:
 *  Visit [Install Docker](https://docs.docker.com/desktop/) and install docker if you haven't already.
-
 * Build application with following command
 ```
 docker build -t turingtestgame .
 ```
-
 * Start docker image within container with following command (mapped to port 3000 by default):
 ```
 docker run -p 3000:3000 -it turingtestgame
 ```
-
 **Note:** Redirect to [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will not automatically reload when you make the changes because the application is deployed within docker and you might have to run above commands again to see the changes in effect. For further details on docker image, could refer to this guide [here](https://code.visualstudio.com/docs/containers/quickstart-node).
-
-
-
- 
 
 ## Deployment Links
 
