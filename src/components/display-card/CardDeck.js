@@ -73,11 +73,11 @@ function CardDeck() {
             />
             <div className="next-button-container">
                 {sentences > 0 
-                    ? (score.enable && <Button data-testid="nextBtn" onClick={changeCard}>Next</Button>)
+                    ? (score.enable && <Button data-testid="nextBtn" className="apply-font" onClick={changeCard}>Next</Button>)
                     : (score.enable &&
                         <div className="end-game-container">
-                            <Button data-testid="newGameBtn" onClick={onStartNewGame}>Start New Game</Button>
-                            <Button data-testid="saveGameBtn" onClick={onSaveGame}>Save Game</Button>
+                            <Button data-testid="newGameBtn" className="apply-font" onClick={onStartNewGame}>Start New Game</Button>
+                            <Button data-testid="saveGameBtn"  className=" apply-font" onClick={onSaveGame}>Save Game</Button>
                         </div>
                     )}
                 {csvRecord.length !== 0 &&

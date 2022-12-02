@@ -46,7 +46,6 @@
 .start-fileArea .start-reminder {
     text-align: center;
     margin-bottom: 1vw;
-    font-family: 'Montserrat', sans-serif;
     font-size: 1.6em;
     font-weight: bold;
 }
@@ -56,17 +55,11 @@
     width: 25vw;
 }
 
-.start-intro {
-    font-family: 'Montserrat', sans-serif;
-}
-
 .start-intro .MuiTypography-h5 {
-    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
 
 .start-intro .start-introContent {
-    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     margin-top: 1vw;
 }
@@ -113,7 +106,6 @@
 
 .display-captionZone .display-caption {
     font-size: 2.5rem;
-    font-family: 'Silkscreen', cursive;
     font-weight: bold;
     color: darkslateblue;
 }
@@ -145,14 +137,12 @@
 
 .display-questionZone .MuiTypography-h5 {
     font-size: 1.5rem;
-    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: black;
 }
 
 .display-questionZone .MuiTypography-h6 {
     font-size: 1.2rem;
-    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     margin-top: 1vh;
     color: black;
@@ -170,7 +160,6 @@
     align-items: center;
     text-align: justify;
     font-size: 1.2rem;
-    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: rgb(76,76,76);
     margin: 0vh 0vw 0.5vh;
@@ -220,7 +209,6 @@
     border: 1px solid blue;
     border-radius: 15px;
     font-size: 1.2rem;
-    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: rgb(76,76,76);
     text-transform: none;
