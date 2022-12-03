@@ -21,9 +21,6 @@
 <li><a href="#project-roadmap">Project Roadmap</a></li>
 <li><a href="#user-flowchart">User Flowchart</a></li>
 <li>
-  <a href="#how-to-upload-custom-font-style">How to upload custom font style?</a>
-</li>
-<li>
   <a href="#how-to-run">How to run?</a>
   <ul>
     <li><a href="#locally">Locally</a></li>
@@ -52,10 +49,6 @@ The project is an interactive Turing test game for player and game admin. The ta
 ## User Flowchart
 
 * You can check the user flowchart here: https://www.canva.com/design/DAFTFqsQKds/8sIHugDhbJEfhaqG2wr51Q/view?utm_content=DAFTFqsQKds&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-
-## How to upload custom font style
-* Select the font that you want to have from [Google font style](https://fonts.google.com/noto/fonts)
-* Update the `<style>` import inside `index.js` file
 
 ## How to run
 
