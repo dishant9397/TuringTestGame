@@ -47,7 +47,7 @@ function UploadFile(props) {
                 <div className="row">
                     <Typography component={'div'} className="start-reminder apply-font">Please select the font you want to apply</Typography>
                     <FontPicker apiKey={API_KEY}
-                        activeFontFamily={fontFamily}
+                        activeFontFamily={fontFamily} data-testid="fontPicker"
                         onChange={(font) => setFontFamily(font.family)}/>
                 </div>
                 <div className="row">

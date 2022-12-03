@@ -36,6 +36,7 @@ const mockLocation = {
   state: { cards: cards, alignOptions: alignOptions },
 };
 const route = "/game";
+const alignOptionsByDefault={ original: false, reference: false };
 
 describe("Test CardDeck section", () => {
   beforeEach(async () => {
@@ -140,5 +141,23 @@ describe("Test CardDeck section", () => {
     const csvRecord = csvHelper(visitedCards, visitedChoices);
     userEvent.click(saveGameBtn);
     expect(csvRecord).not.toBe(undefined);
+  });
+
+  test("check right alignment renders when enable right align", async () => {
+    render(
+      <MemoryRouter initialEntries={[route]}>
+        <CardDeck
+          card={card}
+          cards={cards}
+          sentences={1}
+          score={score}
+          visitedCards={visitedCards}
+          visitedChoices={visitedChoices}
+          alignOptions={alignOptions}
+        />
+      </MemoryRouter>
+    );
+    const original = screen.getByTestId("original");
+    expect(original).toHaveStyle(`text-align: right;`)
   });
 });

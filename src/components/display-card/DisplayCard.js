@@ -94,7 +94,7 @@ function DisplayCard(props) {
                         <Typography className="apply-font" gutterBottom variant="h5" component="div">
                             The original sentence:
                         </Typography>
-                        <Typography className="apply-font" variant="body1" align={alignOptions.original ? "right" : "left"}>
+                        <Typography className="apply-font"  data-testid="original" variant="body1" align={alignOptions.original ? "right" : "left"}>
                             {card.original}
                         </Typography>
                         <Typography className="apply-font" gutterBottom variant="h6" component="div">

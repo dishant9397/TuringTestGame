@@ -83,6 +83,15 @@ describe("Test file uploader", () => {
     const referenceAlignCheckBox = screen.getByTestId('referenceAlignCheckBox');
     expect(referenceAlignCheckBox).toBeInTheDocument();
   });
+
+  test('check font picker renders', () => {
+    const onSubmit = jest.fn();
+    render(<UploadFile handleSubmit={onSubmit} />);
+    const container = document.querySelector('#font-picker')
+
+    const fontPicker = container.getElementsByClassName("dropdown-button");
+    expect(fontPicker).toBeTruthy();
+  });
 });
 
 
