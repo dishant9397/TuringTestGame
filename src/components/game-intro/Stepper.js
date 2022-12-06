@@ -84,15 +84,15 @@ function HorizontalLinearStepper() {
                     <div className="start-buttonArea">
                         {activeStep !== UPLOAD_FILE &&
                         <div className="stepper-button left">
-                            <Button data-testid="backBtn" color="inherit" onClick={handleBack} sx={{ mr: 1 }} {...styleProps}>Back</Button>
+                            <Button data-testid="backBtn" className="apply-font" color="inherit" onClick={handleBack} sx={{ mr: 1 }} {...styleProps}>Back</Button>
                         </div>}
                         {activeStep === GAME_INTRO && 
                         <div className="stepper-button right">
-                            <Button data-testid="nextBtn" onClick={handleNext}>Next</Button>
+                            <Button className="apply-font" data-testid="nextBtn" onClick={handleNext}>Next</Button>
                         </div>}
                         {activeStep === START_GAME && 
                         <div className="stepper-button right">
-                            <Button data-testid="startBtn" onClick={() => navigate('/game', { state: {cards: cards, sentences: sentences, alignOptions: alignOptions} })}>Start Game</Button>
+                            <Button data-testid="startBtn" className="apply-font" onClick={() => navigate('/game', { state: {cards: cards, sentences: sentences, alignOptions: alignOptions} })}>Start Game</Button>
                         </div>}
 
                     </div>

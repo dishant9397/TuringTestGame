@@ -24,10 +24,10 @@ function Translation(props) {
 
     React.useEffect(() => {
         if (choice === details.type && !details.isSelected) {
-            setClassName("display-cardButton-clicked")
+            setClassName("display-cardButton-clicked apply-font")
             details.isSelected = true
         } else {
-            setClassName("display-cardButton")
+            setClassName("display-cardButton apply-font")
             details.isSelected = false
         }
         // eslint-disable-next-line
@@ -36,10 +36,10 @@ function Translation(props) {
     return (
         <div>
             <div style={{ display:'flex' }}>
-                <Button style={{ textTransform: 'none', justifyContent: `${getAlignment()}`, textAlign: `${getTextAlignment()}` }} className={className} data-testid="selectBtn" onClick={handleClick}>
+                <Button style={{ textTransform: 'none', justifyContent: `${getAlignment()}`, textAlign: `${getTextAlignment()}` }} className={`${className} "apply-font"`} data-testid="selectBtn" onClick={handleClick}>
                     {details.translation}
                 </Button>
-                {score.enable && <Typography data-testid="score" className="score-class">{details.score}</Typography>}
+                {score.enable && <Typography data-testid="score" className="score-class apply-font">{details.score}</Typography>}
                 {score.enable && <img src={details.image} data-testid="identityImg" alt={details.type} title={details.type} className="identityImg" />}
             </div>
         </div> 

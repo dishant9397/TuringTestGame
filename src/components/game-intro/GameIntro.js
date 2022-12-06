@@ -3,13 +3,13 @@ import { Card, CardContent, Typography } from '@material-ui/core';
 
 function GameIntro() {
     return (
-        <div className="start-intro">
+        <div className="start-intro apply-font">
             <Card>
                 <CardContent>
-                    <Typography variant="h5" component="div">
+                    <Typography className="apply-font" variant="h5" component="div">
                         Turing Test Game
                     </Typography>
-                    <Typography component="span" className="start-introContent">
+                    <Typography component="span" className="start-introContent apply-font">
                         Turing Test Game to play with robot translators. All the Machine
                         Translation is from the National Research Council of Canada’s (NRC)
                         Multilingual Text Processing team. We have 3 non-player characters:

@@ -84,23 +84,23 @@ function DisplayCard(props) {
         <Box sx={{ width: '100%' }} className="box">
             {<img src={Logo} alt="background" className="background" />}
             <div className="display-captionZone">
-                <Typography className="display-caption">
+                <Typography className="display-caption apply-font">
                     Guess which translation is from human?
                 </Typography>
             </div>
             <div className="display-questionZone">
                 <Card style={{maxHeight: '70vh', overflow: 'auto'}}>
                     <CardContent data-testid="questionZone">
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography className="apply-font" gutterBottom variant="h5" component="div">
                             The original sentence:
                         </Typography>
-                        <Typography variant="body1" align={alignOptions.original ? "right" : "left"}>
+                        <Typography className="apply-font"  data-testid="original" variant="body1" align={alignOptions.original ? "right" : "left"}>
                             {card.original}
                         </Typography>
-                        <Typography gutterBottom variant="h6" component="div">
+                        <Typography className="apply-font" gutterBottom variant="h6" component="div">
                             The reference sentence:
                         </Typography>
-                        <Typography variant="body2" align={alignOptions.reference ? "right" : "left"}>
+                        <Typography className="apply-font" variant="body2" align={alignOptions.reference ? "right" : "left"}>
                             {card.referenceTranslation}
                         </Typography>
                     </CardContent>
@@ -109,13 +109,13 @@ function DisplayCard(props) {
                         <Translation details={translations[order[0]]} options={options}/>
                         <Translation details={translations[order[1]]} options={options}/>
                         <Translation details={translations[order[2]]} options={options}/>
-                        {choice !== "" && <Button className="submit-button" data-testid="submitBtn" onClick={onSubmit}>Submit</Button>}
+                        {choice !== "" && <Button className="submit-button apply-font" data-testid="submitBtn" onClick={onSubmit}>Submit</Button>}
                     </CardActions>
                 </Card>
                 <div style={{ display:'flex' }}>
-                    {score.enable && <Typography variant="h6" className="score-typography" data-testid="playerScore" align="left">Player's Score: {score.player}</Typography>}
+                    {score.enable && <Typography variant="h6" className="score-typography  apply-font" data-testid="playerScore" align="left">Player's Score: {score.player}</Typography>}
                     {score.enable && <Typography style={{width: '40%'}}></Typography>}
-                    {score.enable && <Typography variant="h6" className="score-typography" data-testid="robotScore" align="right">Robot's Score: {score.robot}</Typography>}
+                    {score.enable && <Typography variant="h6" className="score-typography  apply-font" data-testid="robotScore" align="right">Robot's Score: {score.robot}</Typography>}
                 </div>
             </div>
         </Box>

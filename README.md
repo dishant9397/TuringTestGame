@@ -21,6 +21,9 @@
 <li><a href="#project-roadmap">Project Roadmap</a></li>
 <li><a href="#user-flowchart">User Flowchart</a></li>
 <li>
+  <a href="#how-to-upload-custom-font-style">How to upload custom font style?</a>
+</li>
+<li>
   <a href="#how-to-run">How to run?</a>
   <ul>
     <li><a href="#locally">Locally</a></li>
@@ -50,6 +53,10 @@ The project is an interactive Turing test game for player and game admin. The ta
 
 * You can check the user flowchart here: https://www.canva.com/design/DAFTFqsQKds/8sIHugDhbJEfhaqG2wr51Q/view?utm_content=DAFTFqsQKds&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
+## How to upload custom font style
+* Select the font that you want to have from [Google font style](https://fonts.google.com/noto/fonts)
+* Update the `<style>` import inside `index.js` file
+
 ## How to run
 
 ### Locally:
@@ -57,37 +64,30 @@ The project is an interactive Turing test game for player and game admin. The ta
 ```
 git clone https://github.com/The-Brainiacs-FSE/TuringTestGame.git
 ```
-
 * Within command line console, run install command to install necessary packages and solve depencency issue
 ```
 npm install --legacy-peer-deps
 ```
-
 * Run test command to check the test suits
 ```
 npm test
 ```
-
 * Run run below command to start the app in the development mode
 ```
 npm start
 ```
-
 **Note:** Redirect to [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will automatically reload when you make the changes.
 
 ### On a container:
 *  Visit [Install Docker](https://docs.docker.com/desktop/) and install docker if you haven't already.
-
 * Build application with following command
 ```
 docker build -t turingtestgame .
 ```
-
 * Start docker image within container with following command (mapped to port 3000 by default):
 ```
 docker run -p 3000:3000 -it turingtestgame
 ```
-
 **Note:** Redirect to [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will not automatically reload when you make the changes because the application is deployed within docker and you might have to run above commands again to see the changes in effect. For further details on docker image, could refer to this guide [here](https://code.visualstudio.com/docs/containers/quickstart-node).
 
 ## Deployment Links

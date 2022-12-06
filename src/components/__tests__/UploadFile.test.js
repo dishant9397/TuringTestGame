@@ -71,7 +71,26 @@ describe("Test file uploader", () => {
     fireEvent.change(screen.getByRole('spinbutton'), { target: { value: 80 } });
 
     const nextBtn = screen.getByText(/next/i);
-    expect(nextBtn).not.toBeDisabled();
+    expect(nextBtn).toBeEnabled();
+  });
+
+  test('check alignment checkbox renders', () => {
+    const onSubmit = jest.fn();
+    render(<UploadFile handleSubmit={onSubmit} />);
+
+    const originalAlignCheckBox = screen.getByTestId('originalAlignCheckBox');
+    expect(originalAlignCheckBox).toBeInTheDocument();
+    const referenceAlignCheckBox = screen.getByTestId('referenceAlignCheckBox');
+    expect(referenceAlignCheckBox).toBeInTheDocument();
+  });
+
+  test('check font picker renders', () => {
+    const onSubmit = jest.fn();
+    render(<UploadFile handleSubmit={onSubmit} />);
+    const container = document.querySelector('#font-picker')
+
+    const fontPicker = container.getElementsByClassName("dropdown-button");
+    expect(fontPicker).toBeTruthy();
   });
 });
 
